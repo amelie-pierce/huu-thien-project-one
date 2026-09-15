@@ -1,0 +1,12 @@
+.portfolio {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  padding-top: calc(var(--spacing-default) * 5);
+  padding-left: calc(var(--spacing-default) * 10);
+  padding-right: calc(var(--spacing-default) * 10);
+  padding-bottom: calc(var(--spacing-default) * 5);
+}

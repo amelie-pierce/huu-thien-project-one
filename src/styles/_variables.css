@@ -1,0 +1,131 @@
+/* Primitive tokens */
+:root {
+    /* Typography */
+    --font-family-sans: var(--font-sans);
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Colors */
+    /* Brand Primitives - Portfolio */
+    --color-charcoal-500: #151312;
+
+    --color-orange-500: #F46C38;
+    --color-orange-600: #DE6231;
+    --color-orange-700: #EC4B0D;
+
+
+    /* Brand Primitives - Shop */
+    --color-sacred-green-500: #1D4E1A;
+    --color-sacred-green-600: #2D5A27;
+    --color-sacred-green-650: rgba(29, 78, 26, 0.7);
+
+    --color-bleach-white-500: #FCF3D9;
+    --color-bleach-white-600: #FFECB8;
+    --color-bleach-white-650: rgba(255, 236, 184, 0.7);
+
+
+    --color-black: #000;
+    --color-white: #fff;
+
+    --color-neutral-200: #D4D4D4;
+    --color-neutral-300: #CDCDCD;
+    --color-neutral-400: #B2B2B2;
+    --color-neutral-500: #6A6B6E;
+    --color-neutral-600: #434343;
+
+
+    --color-red-500: #ef4444;
+    --color-green-500: #22c55e;
+    --color-yellow-500: #f59e0b;
+    --color-blue-500: #3b82f6;
+
+
+    --color-black-alpha-50: rgba(0, 0, 0, 0.5);
+    --color-white-alpha-20: rgba(255, 255, 255, 0.2);
+
+    /* Spacing */
+    --spacing-default: 4px;
+
+    /* Radius */
+    --radius-1: 4px;
+    --radius-2: 8px;
+    --radius-3: 12px;
+    --radius-4: 16px;
+    --radius-5: 20px;
+    --radius-6: 24px;
+    --radius-full: 9999px;
+}
+
+/* Semantic tokens */
+:root {
+    --color-bg: var(--color-neutral-50);
+    --color-surface: var(--color-white);
+    --color-text-primary: var(--color-neutral-900);
+    --color-text-secondary: var(--color-neutral-600);
+    --color-text-tertiary: var(--color-neutral-500);
+    --color-text-disabled: var(--color-neutral-400);
+    --color-border: var(--color-neutral-200);
+    --color-border-strong: var(--color-neutral-400);
+    --color-brand-primary: var(--color-sacred-green-500);
+    --color-brand-primary_hover: var(--color-sacred-green-600);
+    --color-danger: var(--color-red-500);
+    --color-success: var(--color-green-500);
+    --color-warning: var(--color-yellow-500);
+    --color-info: var(--color-blue-500);
+
+    --color-backdrop: var(--color-black-alpha-50);
+    --color-disabled: var(--color-neutral-200);
+}
+
+/* Component-specific tokens */
+:root {
+    /* Button */
+    --button-primary-bg: var(--color-brand-primary);
+    --button-primary-bg-hover: var(--color-brand-primary-hover);
+    --button-primary-text: var(--color-white);
+
+    /* Input */
+    --input-bg: var(--color-surface);
+    --input-border: var(--color-border);
+    --input-border-focus: var(--color-brand-primary);
+
+    /* Card */
+    --card-bg: var(--color-surface);
+    --card-border: var(--color-border);
+}
+
+
+
+/* .portfolio {
+  --color-bg: var(--color-neutral-50);
+  --color-surface: var(--color-white);
+
+  --color-text-primary: var(--color-neutral-900);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-text-tertiary: var(--color-neutral-500);
+  --color-text-disabled: var(--color-neutral-400);
+
+  --color-border: var(--color-neutral-200);
+  --color-border-strong: var(--color-neutral-400);
+
+  --color-brand-primary: var(--color-orange-500);
+  --color-brand-primary-hover: var(--color-orange-600);
+} */
+
+.portfolio-dark {
+    --color-bg: var(--color-charcoal-500);
+    --color-surface: var(--color-neutral-900);
+
+    --color-text-primary: var(--color-neutral-300);
+    --color-text-secondary: var(--color-neutral-400);
+    --color-text-tertiary: var(--color-neutral-500);
+    --color-text-disabled: var(--color-neutral-600);
+
+    --color-border: var(--color-neutral-600);
+    --color-border-strong: var(--color-neutral-500);
+
+    --color-brand-primary: var(--color-orange-500);
+    --color-brand-primary-hover: var(--color-orange-600);
+}
