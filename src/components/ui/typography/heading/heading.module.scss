@@ -1,7 +1,7 @@
 .heading {
   color: var(--color-text-primary);
   font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-tight);
+  line-height: var(--line-height-none);
 }
 
 .display {
@@ -9,8 +9,8 @@
 }
 
 .section {
-  font-size: var(--text-display-md);
-  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-display-2xl);
+  line-height: var(--line-height-none);
 }
 
 .card {

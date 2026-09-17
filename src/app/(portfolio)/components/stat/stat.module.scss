@@ -2,13 +2,12 @@
   display: flex;
   width: 128px;
   flex-direction: column;
-  gap: calc(var(--spacing) * 2);
 
   .value {
     font-size: calc(var(--spacing) * 16);
     font-weight: var(--font-weight-semibold);
     color: var(--color-white);
-    line-height: 100%;
+    line-height: var(--line-height-none);
   }
 
   .label {
