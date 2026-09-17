@@ -1,0 +1,12 @@
+# Build folders
+.next/
+dist/
+build/
+out/
+
+# Dependencies
+node_modules/
+
+# Environment files and locks
+.env*
+package-lock.json
