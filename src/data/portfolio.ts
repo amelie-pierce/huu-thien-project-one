@@ -1,3 +1,9 @@
+export const navItems = [
+  { label: "Self", href: "#self" },
+  { label: "Experience", href: "#experience" },
+  { label: "Project", href: "#project" },
+  { label: "Shop", href: "/menu" }
+];
 export const hobbies = ["Music", "Hiphop", "Coding", "Farmer", "Sleep"];
 export const stats = [
   {
@@ -18,9 +24,9 @@ export const experiences = [
     company: 'DIGIEX, VN',
     role: 'Senior Frontend Engineer',
     description:
-      'Optimized interactive rendering workflows by developing Node.js lambdas and Step Functions that seamlessly transformed complex frontend UI states into lightweight, pixel-perfect, and spec-compliant HTML5 digital ads.',
+      'Optimized interactive rendering workflows by developing Node.js Lambdas and Step Functions that seamlessly translated complex frontend UI states into lightweight, pixel-perfect, and spec-compliant HTML5 digital ads',
     period: 'Sep 2025 – May 2026',
-    url: 'https://digiex.vn',
+    url: 'https://digiex.asia',
   },
   {
     company: 'SILICONPRIME, VN',
@@ -28,38 +34,41 @@ export const experiences = [
     description:
       'Contributed to technical solution discussions, requirement clarification, and implementation planning to ensure scalable and maintainable product delivery.',
     period: 'July 2022 – Sep 2025',
-    url: 'https://siliconprime.vn',
+    url: 'https://siliconprime.ai',
   },
   {
     company: 'DIROX, VN',
     role: 'Senior Web Developer',
     description:
-      'Develop within various web-based architectures and frameworks. Coordinate with back-end/mobile/Designers/BA team on each project and work within the campaign team on clients’ requirements and feedback.',
+      'Develop within various web-based architectures and frameworks. Coordinate with back-end/mobility/Designers/BA team on each project and work within the campaign team on clients’ requirements and feedback.',
     period: 'Sep 2020 – July 2022',
-    url: 'https://dirox.vn',
+    url: 'https://dirox.com/',
   },
 ];
 
 export const recentProjects = [
   {
+    id: 'obello',
     name: 'Obello',
     description:
       'Obello is an AI graphic design and content platform that enables design and marketing teams to instantly create beautiful, on-brand content at scale.',
-    logo: '/images/projects/obello.png',
-    url: 'https://obello.com',
+    logo: '/images/portfolio/obello-logo.png',
+    url: 'https://app.obello.com/auth/login',
   },
   {
+    id: 'clix',
     name: 'Clix',
     description:
       'ClixTV is a free digital video platform and entertainment discovery app. It serves short-form promotional content and interactive guides to help users find movies and series across major streaming platforms.',
-    logo: '/images/projects/clix.png',
+    logo: '/images/portfolio/clix-logo.png',
     url: 'https://clix.com',
   },
   {
+    id: 'bridge-athletic',
     name: 'Bridge Athletic',
     description:
       'BridgeAthletic offers world-class software for coaches and personal trainers to deliver custom training programs and track athlete performance.',
-    logo: '/images/projects/bridge-athletic.png',
-    url: 'https://bridgeathletic.com',
+    logo: '/images/portfolio/bridge-logo.png',
+    url: 'https://www.bridgeathletic.com/login',
   },
 ];

@@ -6,7 +6,6 @@
   font-family: var(--font-sans);
   background-color: var(--color-bg);
   color: var(--color-text-primary);
-  padding-bottom: calc(var(--spacing) * 5);
   gap: calc(var(--spacing) * 16);
   min-height: 100vh;
 }
@@ -19,18 +18,22 @@
   grid-template-columns: 1fr;
   align-content: start;
   grid-template-rows: auto;
-  gap: calc(var(--spacing) * 8);
+  column-gap: calc(var(--spacing) * 8);
+
+  .mainContent {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 24);
+
+    section {
+      scroll-margin-top: calc(var(--spacing) * 4);
+    }
+  }
 }
 
 .sidebar {
   grid-area: sidebar;
-}
-
-.main {
-  grid-area: main;
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 24);
 }
 
 .infoCard {
@@ -40,7 +43,7 @@
   margin: 0 auto;
   padding: calc(var(--spacing) * 8);
   background-color: var(--color-white);
-  border-radius: var(--radius-6);
+  border-radius: var(--radius-4);
 
   .top {
     display: flex;
@@ -69,6 +72,8 @@
     .name {
       color: var(--color-black);
       line-height: var(--line-height-relaxed);
+      font-size: var(--text-display-md);
+      font-weight: var(--font-weight-semibold);
     }
 
     .socials {
@@ -89,6 +94,7 @@
     .text {
       font-weight: var(--font-weight-semibold);
       color: var(--color-text-tertiary);
+      line-height: (var(--line-height-relaxed));
     }
 
     .hobbyfy {
@@ -126,6 +132,7 @@
   gap: calc(var(--spacing) * 2);
   color: var(--color-text-tertiary);
   align-self: stretch;
+  min-height: 26px;
 
   &::before,
   &::after {
@@ -151,17 +158,24 @@
     top: calc(var(--spacing) * 10);
     align-self: start;
   }
+
   .bodyContainer {
     grid-template-columns: 368px 1fr;
     grid-template-areas: "sidebar main";
-    gap: calc(var(--spacing) * 16);
+    column-gap: calc(var(--spacing) * 16);
+
+    .mainContent {
+      section {
+        scroll-margin-top: calc(var(--spacing) * 10);
+      }
+    }
   }
 
-  .infoCardContainer {
-    height: 796px;
+  .infoCard {
+    min-height: 796px;
   }
 
-  .hero {
+  .heroSection {
     display: flex;
     flex-direction: column;
     gap: calc(var(--spacing) * 4);
@@ -177,6 +191,10 @@
         align-items: center;
         gap: calc(var(--spacing) * 8);
       }
+
+      .textBody {
+        text-wrap: balance;
+      }
     }
 
     .statContainer {
@@ -187,7 +205,8 @@
     }
   }
 
-  .experienceSection, .experiences {
+  .experienceSection,
+  .experiences {
     display: flex;
     flex-direction: column;
     gap: calc(var(--spacing) * 6);
