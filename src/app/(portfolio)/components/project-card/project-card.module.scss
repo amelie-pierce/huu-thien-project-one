@@ -1,0 +1,51 @@
+.card {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  gap: var(--spacing);
+  padding: calc(var(--spacing) * 6) calc(var(--spacing) * 4);
+
+  .wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: calc(var(--spacing) * 4);
+  }
+
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+    width: 125px;
+    flex-shrink: 0;
+    border-radius: var(--radius-2);
+    overflow: hidden;
+
+    img {
+      max-height: 96px;
+      object-fit: cover;
+      border-radius: var(--radius-2);
+    }
+
+    img[id='clix'] {
+      object-position: bottom;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    display: flex;
+    place-content: center;
+    flex-wrap: wrap;
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+}
