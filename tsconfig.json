@@ -22,7 +22,9 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@styles/*": ["./src/styles/*"],
-      "@ultils/*": ["./src/ultils/*"]
+      "@utils/*": ["./src/utils/*"],
+      "@components/ui/*": ["./src/components/ui/*"],
+      "@data/*": ["./src/data/*"]
     }
   },
   "include": [
@@ -32,6 +34,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "src/components/ui/icons/XIcontsx", "src/components/ui/typography/heading"  ],
   "exclude": ["node_modules"]
 }
