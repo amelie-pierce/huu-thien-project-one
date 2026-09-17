@@ -1,0 +1,23 @@
+.card {
+  background: transparent;
+  gap: var(--spacing);
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    display: flex;
+    place-content: center;
+    flex-wrap: wrap;
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+}
