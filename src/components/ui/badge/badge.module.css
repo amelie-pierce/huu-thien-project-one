@@ -1,0 +1,31 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  height: max-content;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  color: var(--color-white);
+  padding-block: var(--spacing);
+  padding-inline: calc(var(--spacing) * 2);
+}
+
+.badge:hover {
+  background-color: var(--color-bg-accent_hover);
+}
+
+.sm {
+  min-height: var(--control-height-sm);
+  font-size: var(--text-xs);
+}
+
+.md {
+  min-height: var(--control-height-md);
+
+  font-size: var(--text-sm);
+}
+
+.default {
+  background: var(--color-bg-accent);
+}
