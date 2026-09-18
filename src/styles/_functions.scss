@@ -1,0 +1,6 @@
+@use "@/styles/variables" as *;
+
+@function spacing($sp) {
+  $spacing-multiplier: $sp / $spacing;
+  @return calc(var(--spacing) * $spacing-multiplier);
+}

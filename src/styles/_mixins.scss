@@ -1,0 +1,19 @@
+@use "@/styles/functions" as *;
+
+$breakpoints: (
+  // Extra Small Mobile (Portrait): 320px – 480px
+  'mobile-landscape': 481px, // Small Mobile (Landscape): 481px – 600px
+  'tablet-portrait': 601px, // Small Tablets (Portrait): 601px – 768px
+  'tablet-landscape': 769px, // Large Tablets (Landscape): 769px – 1024px
+  'laptop': 1025px, // Small Desktops and Laptops: 1025px – 1280px
+  'desktop-large': 1281px, // Large Desktops and High-Resolution Screens: 1281px – 1440px
+  'desktop-xl': 1441px // Extra-Large Desktops: 1441px and up
+);
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}

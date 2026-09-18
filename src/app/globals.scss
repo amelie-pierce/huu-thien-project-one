@@ -1,10 +1,5 @@
-@use "../styles/_variables.scss";
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+@use "@/styles/token";
+@use "@/styles/reset";
 
 html {
   height: 100%;
@@ -34,13 +29,7 @@ img {
   height: auto;
 }
 
-.container {
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 calc(var(--spacing) * 10);
-}
-
+/* Utilities */
 .uppercase {
   text-transform: uppercase;
 }
