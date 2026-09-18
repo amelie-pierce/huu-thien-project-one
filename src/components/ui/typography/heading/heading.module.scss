@@ -5,16 +5,36 @@
 }
 
 .display {
-  font-size: var(--text-display-3xl);
+  font-size: var(--text-display-xl);
+
+  @include respond-to('tablet-landscape') {
+    font-size: var(--text-display-2xl);
+  }
+
+  @include respond-to('laptop') {
+    font-size: var(--text-display-3xl);
+  }
 }
 
 .section {
-  font-size: var(--text-display-2xl);
+  font-size: var(--text-display-lg);
   line-height: var(--line-height-none);
+
+  @include respond-to('tablet-landscape') {
+    font-size: var(--text-display-xl);
+  }
+
+  @include respond-to('laptop') {
+    font-size: var(--text-display-2xl);
+  }
 }
 
 .card {
-  font-size: var(--text-display-xs);
+  font-size: var(--text-xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-normal);
+
+  @include respond-to('tablet-landscape') {
+    font-size: var(--text-display-xs);
+  }
 }
