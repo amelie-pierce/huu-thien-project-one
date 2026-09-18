@@ -1,6 +1,6 @@
 "use client"
 
-import { Badge, Heading, Text } from "@/components/ui";
+import { Badge, Container, Heading, Text } from "@/components/ui";
 import { experiences, hobbies, recentProjects, stats } from "@/data/portfolio";
 
 import { ExperienceCard } from "./components/experience-card/experience-card";
@@ -20,9 +20,9 @@ import styles from "./portfolio.module.scss";
 export default function Home() {
   return (
     <ViewTransition >
-      <div className={cn("portfolio-dark", styles.portfolioContainer)}>
+      <div data-theme="portfolio-dark" className={cn(styles.portfolioContainer)}>
         <PortfolioHeader />
-        <div className={cn("container", styles.bodyContainer)}>
+        <Container className={cn("container", styles.bodyContainer)}>
           <aside className={styles.sidebar}>
             <div className={styles.infoCard}>
               <div className={styles.infoCardContainer}>
@@ -52,7 +52,7 @@ export default function Home() {
                     </div>
                     <div className={styles.hobbyBadges}>
                       {hobbies.map((hobby) => (
-                        <Badge key={hobby}>{hobby}</Badge>
+                        <Badge key={hobby}><span className={styles.hobbyText}>{hobby}</span></Badge>
                       ))}
                     </div>
                   </div>
@@ -63,7 +63,7 @@ export default function Home() {
           <main className={styles.mainContent}>
             <section id="self" className={styles.heroSection}>
               <div className={styles.titleRole}>
-                <Heading as="h1" variant="display" className="uppercase">Frontend <span className={styles.textMuted}>Engineer</span></Heading>
+                <Heading as="h1" variant="display" className={styles.textHeading}>Frontend <br /> <span className={styles.textMuted}>Engineer</span></Heading>
                 <Text size="xl" className={styles.textBody}>
                   Front-end builder obsessed with simple structure, clean design, and thoughtful interactions. I love bringing concepts to life from scratch—and helping other creators level up along the way
                 </Text>
@@ -76,7 +76,7 @@ export default function Home() {
               </div>
             </section>
             <section id="experience" className={styles.experienceSection}>
-              <Heading className="uppercase">10+ YEARS OF <br /> <span className={styles.textMuted}>EXPERIENCE</span></Heading>
+              <Heading className={styles.textHeading}>10+ YEARS OF <br /> <span className={styles.textMuted}>EXPERIENCE</span></Heading>
               <div className={styles.experiences}>
                 {experiences.map((experience) => (
                   <ExperienceCard
@@ -91,7 +91,7 @@ export default function Home() {
               </div>
             </section>
             <section id="project" className={styles.experienceSection}>
-              <Heading className="uppercase">Recent <br /> <span className={styles.textMuted}>Projects</span></Heading>
+              <Heading className={styles.textHeading}>Recent <br /> <span className={styles.textMuted}>Projects</span></Heading>
               <div className={styles.experiences}>
                 {recentProjects.map((project) => (
                   <ProjectCard
@@ -106,7 +106,7 @@ export default function Home() {
               </div>
             </section>
           </main>
-        </div>
+        </Container>
         <PortfolioFooter />
       </div>
     </ViewTransition>

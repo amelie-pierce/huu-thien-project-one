@@ -1,11 +1,11 @@
 .card {
   background: transparent;
-  gap: var(--spacing);
+  gap: spacing(4);
 
   .content {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--spacing) * 2);
+    gap: spacing(8);
   }
 
   .icon {

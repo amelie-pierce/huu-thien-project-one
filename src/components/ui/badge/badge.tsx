@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "@/utils";
-import styles from "./badge.module.css";
+import styles from "./badge.module.scss";
 
 export type BadgeVariant = "default" | "success" | "warning" | "danger" | "info";
 export type BadgeSize = "sm" | "md" | "lg";

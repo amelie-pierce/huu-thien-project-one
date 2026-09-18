@@ -4,14 +4,14 @@
   flex-direction: column;
 
   .value {
-    font-size: calc(var(--spacing) * 16);
+    font-size: spacing(64);
     font-weight: var(--font-weight-semibold);
     color: var(--color-white);
     line-height: var(--line-height-none);
   }
 
   .label {
-    font-size: calc(var(--spacing) * 5);
+    font-size: spacing(20);
     color: var(--color-text-on-bg-secondary);
     font-weight: var(--font-weight-semibold);
     line-height: var(--line-height-normal);

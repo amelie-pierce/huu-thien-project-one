@@ -13,7 +13,11 @@
 }
 
 .md {
-  font-size: var(--text-md);
+  font-size: var(--text-sm);
+
+  @include respond-to('tablet-landscape') {
+    font-size: var(--text-md);
+  }
 }
 
 .lg {

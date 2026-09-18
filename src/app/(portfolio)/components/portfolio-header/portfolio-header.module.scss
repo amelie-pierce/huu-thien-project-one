@@ -2,6 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: calc(var(--spacing) * 8);
-  color: var(--text-main);
+  padding: spacing(16);
+
+  @include respond-to('tablet-landscape') {
+    padding: spacing(24);
+  }
+
+  @include respond-to('laptop') {
+    padding: spacing(32);
+  }
 }
