@@ -1,0 +1,106 @@
+.footer {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  padding-inline: spacing(16);
+
+  :focus-visible {
+    outline-color: var(--color-on-primary);
+  }
+
+  @include respond-to("tablet-portrait") {
+    padding-inline: spacing(80);
+  }
+
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: spacing(20);
+    align-items: start;
+    padding-block: spacing(33);
+
+    @include respond-to("tablet-portrait") {
+      grid-template-columns: auto auto auto;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: spacing(24);
+    text-align: center;
+
+    @include respond-to("tablet-portrait") {
+      grid-column: auto;
+    }
+  }
+
+  .logo {
+    display: grid;
+    place-items: center;
+  }
+
+  .brandName {
+    font-size: var(--text-md);
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+
+    @include respond-to("tablet-portrait") {
+      font-size: var(--text-lg);
+    }
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(8);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: var(--text-sm);
+  }
+
+  .contactItem {
+    display: inline-flex;
+    align-items: center;
+    gap: spacing(8);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .social {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(20);
+  }
+
+  .socialTitle {
+    font-size: var(--text-sm);
+    color: var(--color-white);
+  }
+
+  .socialList {
+    display: flex;
+    gap: spacing(4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .socialLink {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--color-on-primary);
+    color: var(--color-primary);
+  }
+}
