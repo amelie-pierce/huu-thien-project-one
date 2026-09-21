@@ -32,7 +32,6 @@
 .card {
   font-size: var(--text-xl);
   font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-normal);
 
   @include respond-to('tablet-landscape') {
     font-size: var(--text-display-xs);
