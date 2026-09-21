@@ -1,0 +1,28 @@
+.heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: spacing(16);
+  margin-bottom: spacing(48);
+  padding-top: spacing(32);
+  border-top: 1px solid var(--color-border-weak);
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: var(--text-lg);
+
+  @include respond-to("tablet-portrait") {
+    font-size: var(--text-3xl);
+  }
+}
+
+.action {
+  font-size: var(--text-md);
+  color: var(--color-fg);
+  padding: spacing(10);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
