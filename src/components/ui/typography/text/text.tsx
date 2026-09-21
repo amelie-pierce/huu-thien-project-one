@@ -4,7 +4,7 @@ import type {
     ReactNode,
 } from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '@/lib/cn';
 import styles from './text.module.scss';
 
 export type TextSize =

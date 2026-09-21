@@ -3,7 +3,7 @@ import type {
     ReactNode,
 } from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '@/lib/cn';
 import styles from './label.module.scss';
 
 export interface LabelProps

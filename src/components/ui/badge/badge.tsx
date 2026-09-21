@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/utils";
+import { cn } from "@/lib/cn";
 import styles from "./badge.module.scss";
 
 export type BadgeVariant = "default" | "success" | "warning" | "danger" | "info";

@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ElementType } from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '@/lib/cn';
 import styles from './card.module.scss';
 
 type CardProps<T extends ElementType = 'div'> = {

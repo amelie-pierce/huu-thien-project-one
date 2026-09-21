@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import Link from 'next/link';
-import { cn } from '@/utils';
+import { cn } from '@/lib/cn';
 import styles from './nav.module.scss';
 
 type NavProps = {
