@@ -1,0 +1,29 @@
+.layout {
+  display: grid;
+  gap: spacing(24);
+  padding-block: spacing(64);
+  align-items: start;
+
+  @include respond-to("laptop") {
+    grid-template-columns: 282px minmax(0, 1fr);
+  }
+
+  .sidebar {
+    min-width: 0;
+    // position: sticky;
+    // top: spacing(20);
+    // z-index: var(--z-header);
+
+    // @include respond-to("laptop") {
+    //   top: spacing(40);
+    //   padding-block: 0;
+    // }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(64);
+    min-width: 0;
+  }
+}

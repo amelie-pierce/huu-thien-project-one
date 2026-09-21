@@ -1,0 +1,56 @@
+.nav {
+  .list {
+    display: flex;
+    gap: spacing(24);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include respond-to("laptop") {
+      flex-direction: column;
+      gap: spacing(24);
+      overflow: visible;
+    }
+  }
+
+  .item {
+    display: inline-flex;
+    align-items: center;
+    gap: spacing(24);
+    white-space: nowrap;
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    color: var(--color-on-bg-muted);
+
+
+    &[data-active],
+    &:hover {
+      color: var(--color-primary);
+
+      .icon {
+        background: var(--color-primary);
+      }
+    }
+
+    .icon {
+      display: none;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--color-on-bg-muted);
+
+      @include respond-to("tablet-portrait") {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+    }
+  }
+}

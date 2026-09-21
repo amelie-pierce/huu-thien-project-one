@@ -22,9 +22,11 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@styles/*": ["./src/styles/*"],
-      "@utils/*": ["./src/utils/*"],
       "@components/ui/*": ["./src/components/ui/*"],
-      "@data/*": ["./src/data/*"]
+      "@data/*": ["./src/data/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@config/*": ["./src/config/*"],
+      "@features/*": ["./src/features/*"]
     }
   },
   "include": [

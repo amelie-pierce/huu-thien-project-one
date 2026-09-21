@@ -1,0 +1,27 @@
+.grid {
+  display: grid;
+  gap: spacing(24);
+  grid-template-columns: 1fr;
+
+  @include respond-to("tablet-portrait") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &[data-variant="menu"] {
+    @include respond-to("laptop") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &[data-variant="page"] {
+    @include respond-to("laptop") {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.empty {
+  padding-block: spacing(24);
+  color: var(--color-fg-muted);
+  text-align: center;
+}

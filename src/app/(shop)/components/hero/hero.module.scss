@@ -1,0 +1,72 @@
+%textTitle {
+  color: var(--color-on-primary);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.heroWrapper {
+  padding-block: spacing(16);
+  background: var(--color-primary);
+  padding-inline: 0;
+  min-height: 500px;
+  @include flex-center;
+
+  @include respond-to("tablet-portrait") {
+    padding-block: spacing(32);
+  }
+
+  @include respond-to("laptop") {
+    padding-block: spacing(52);
+  }
+}
+
+.heroContainer {
+  display: grid;
+  gap: spacing(24);
+  padding-block: spacing(19);
+  padding-inline: spacing(20);
+
+  @include respond-to("tablet-portrait") {
+    padding-inline: spacing(32);
+  }
+
+  @include respond-to("laptop") {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding-inline: spacing(40);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(24);
+  padding: spacing(24);
+
+  .title {
+    font-size: var(--text-hero);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-none);
+    @extend %textTitle;
+  }
+
+  .subtitle {
+    font-size: clamp(var(--text-md), 2.5vw, var(--text-xl));
+    font-weight: var(--font-weight-medium);
+    @extend %textTitle;
+  }
+}
+
+.media {
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+
+  @include respond-to("tablet-portrait") {
+  }
+
+  @include respond-to("laptop") {
+  }
+}
