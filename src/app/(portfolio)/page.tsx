@@ -14,7 +14,7 @@ import { Stat } from "./components/stat/stat";
 import { ViewTransition } from "react";
 import { XIcon } from "@/components/ui/icons/XIcon";
 import { YoutubeIcon } from "@/components/ui/icons/YoutubeIcon";
-import { cn } from "@/utils";
+import { cn } from "@/lib/cn";
 import styles from "./portfolio.module.scss";
 
 export default function Home() {
