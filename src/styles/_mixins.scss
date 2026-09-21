@@ -17,3 +17,29 @@ $breakpoints: (
     }
   }
 }
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin padding-inline {
+  padding-inline: spacing(20);
+
+  @include respond-to("tablet-landscape") {
+    padding-inline: spacing(30);
+  }
+
+  @include respond-to("laptop") {
+    padding-inline: spacing(40);
+  }
+}
+
+@mixin truncate($lines: 1) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
