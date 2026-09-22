@@ -90,3 +90,27 @@ export function CoffeeCupIcon(props: IconProps) {
     </Svg>
   );
 }
+
+export function CloseIcon(props: IconProps) {
+  return (
+    <Svg viewBox="0 0 25 25" fill="none" {...props}>
+      <path d="M7.15234 5.36719C6.66406 4.87891 5.87109 4.87891 5.38281 5.36719C4.89453 5.85547 4.89453 6.64844 5.38281 7.13672L10.75 12.5L5.38672 17.8672C4.89844 18.3555 4.89844 19.1484 5.38672 19.6367C5.875 20.125 6.66797 20.125 7.15625 19.6367L12.5195 14.2695L17.8867 19.6328C18.375 20.1211 19.168 20.1211 19.6563 19.6328C20.1445 19.1445 20.1445 18.3516 19.6563 17.8633L14.2891 12.5L19.6523 7.13281C20.1406 6.64453 20.1406 5.85156 19.6523 5.36328C19.1641 4.875 18.3711 4.875 17.8828 5.36328L12.5195 10.7305L7.15234 5.36719Z" fill="#6A6B6E" />
+    </Svg>
+  );
+}
+
+export function MinusIcon(props: IconProps) {
+  return (
+    <Svg width="6" height="2" viewBox="0 0 6 2" fill="none" {...props}>
+      <path d="M5.58599 4.35114e-05V1.07804H-1.169e-05V4.35114e-05H5.58599Z" fill="#1D4E1A" />
+    </Svg>
+  );
+}
+
+export function PlusIcon(props: IconProps) {
+  return (
+    <Svg width="8" height="8" viewBox="0 0 8 8" fill="none" {...props}>
+      <path d="M7.14023 4.11597H4.15823V7.13997H2.96823V4.11597H0.000226632V3.03797H2.96823V-3.09944e-05H4.15823V3.03797H7.14023V4.11597Z" fill="#1D4E1A" />
+    </Svg>
+  );
+}
