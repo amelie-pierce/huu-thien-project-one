@@ -29,6 +29,7 @@
     --color-neutral-500: #6A6B6E;
     --color-neutral-550: #757575;
     --color-neutral-600: #434343;
+    --color-neutral-650: #767676;
     --color-neutral-700: #303030;
 
     --color-red-500: #EC221F;
@@ -132,6 +133,8 @@
 
     --color-overlay: var(--color-black-alpha-30);
     --color-disabled: var(--color-neutral-200);
+    --border-input: var(--color-neutral-650);
+    --color-placeholder-input: var(--color-neutral-200);
 
 
 

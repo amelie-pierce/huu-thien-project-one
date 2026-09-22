@@ -10,3 +10,5 @@ export * from "./quantity-stepper";
 export * from "./spinner";
 export * from "./chip-group";
 export * from "./button";
+export * from "./input";
+export * from "./checkbox";
