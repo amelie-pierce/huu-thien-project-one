@@ -43,7 +43,7 @@
     --color-amber-700: #f59e0b;
     --color-blue-500: #3b82f6;
 
-    --color-black-alpha-50: rgba(0, 0, 0, 0.5);
+    --color-black-alpha-30: rgba(0, 0, 0, 0.3);
     --color-white-alpha-20: rgba(255, 255, 255, 0.2);
 
     /* Spacing */
@@ -107,7 +107,7 @@
     --color-on-bg-muted: var(--color-brand-green-650);
     --color-surface: var(--color-white);
     --color-fg: var(--color-brand-green-500);
-    --color-fg-muted: var(--color-brand-green-600);
+    --color-fg-muted: var(--color-brand-green-650);
     --color-primary: var(--color-brand-green-500);
     --color-on-primary: var(--color-cream-500);
     --color-text-primary: var(--color-brand-green-500);
@@ -130,7 +130,7 @@
     --color-warning-light: var(--color-amber-200);
     --color-info: var(--color-blue-500);
 
-    --color-overlay: rgb(--color-black-alpha-50);
+    --color-overlay: var(--color-black-alpha-30);
     --color-disabled: var(--color-neutral-200);
 
 
