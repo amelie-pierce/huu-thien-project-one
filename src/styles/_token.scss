@@ -10,6 +10,7 @@
 
 
     /* Brand Primitives - Shop */
+    --color-brand-green-100: rgba(29, 78, 26, 0.12);
     --color-brand-green-500: #1D4E1A;
     --color-brand-green-600: #2D5A27;
     --color-brand-green-650: rgba(29, 78, 26, 0.7);
@@ -31,6 +32,7 @@
     --color-neutral-600: #434343;
     --color-neutral-650: #767676;
     --color-neutral-700: #303030;
+    --color-neutral-800: #434343;
 
     --color-red-500: #EC221F;
     --color-red-600: #C00F0C;
@@ -89,7 +91,7 @@
     /* Line height */
     --line-height-none: 1;
     --line-height-tight: 1.1;
-    --line-height-snug: 1.25;
+    --line-height-snug: 1.2;
     --line-height-normal: 1.4;
     --line-height-relaxed: 1.5;
 
@@ -115,6 +117,7 @@
     --color-text-secondary: var(--color-neutral-600);
     --color-text-tertiary: var(--color-neutral-500);
     --color-text-disabled: var(--color-neutral-400);
+    --color-border-muted: var(--color-brand-green-100);
     --color-border: var(--color-neutral-200);
     --color-border-weak: var(--color-neutral-350);
     --color-border-strong: var(--color-neutral-400);
@@ -133,21 +136,6 @@
 
     --color-overlay: var(--color-black-alpha-30);
     --color-disabled: var(--color-neutral-200);
-    --border-input: var(--color-neutral-650);
-    --color-placeholder-input: var(--color-neutral-200);
-
-
-
-//   --color-bg: var(--cream-100);
-//   --color-surface: var(--white);
-//   --color-fg: var(--green-900);
-//   --color-fg-muted: var(--green-600);
-//   --color-primary: var(--green-900);
-//   --color-on-primary: var(--cream-100);
-//   --color-border: var(--cream-300);
-//   --color-danger: var(--red-500);
-//   --color-success: var(--emerald-500);
-//   --color-overlay: rgb(0 0 0 / 0.3);
 }
 
 /* Component-specific tokens */
@@ -159,12 +147,17 @@
 
     /* Input */
     --input-bg: var(--color-surface);
-    --input-border: var(--color-border);
+    --input-border: var(--color-neutral-650);
     --input-border-focus: var(--color-brand-primary);
+    --input-placeholder: var(--color-neutral-200);
 
     /* Card */
     --card-bg: var(--color-surface);
     --card-border: var(--color-border);
+
+    /* Payment Card */
+    --payment-card-name: #434343;
+    --payment-card-meta: #6A6B6E;
 }
 
 

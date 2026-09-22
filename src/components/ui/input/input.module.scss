@@ -15,18 +15,18 @@
   .input {
     width        : 100%;
     padding      : spacing(8);
-    border       : 1px solid var(--border-input);
+    border       : 1px solid var(--input-border);
     border-radius: var(--radius-2);
     background   : var(--color-surface);
     font-size    : var(--text-sm);
 
     &::placeholder {
-      color  : var(--color-placeholder-input);
+      color  : var(--input-placeholder);
       opacity: 0.7;
     }
 
     &:focus {
-      border-color: var(--color-primary);
+      border-color: var(--input-border-focus);
       outline     : none;
     }
 
