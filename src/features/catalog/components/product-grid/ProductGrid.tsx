@@ -1,5 +1,6 @@
 import { Product } from "../../types";
 import { ProductCard } from "../product-card/ProductCard";
+import { Text } from "@/components/ui";
 import s from "./product-grid.module.scss";
 
 type Props = {
@@ -9,7 +10,7 @@ type Props = {
 
 export function ProductGrid({ products, variant = "menu" }: Props) {
   if (products.length === 0) {
-    return <p className={s.empty}>No items here yet. Check another category.</p>;
+    return <Text className={s.empty}>No items here yet. Check another category.</Text>;
   }
 
   return (
