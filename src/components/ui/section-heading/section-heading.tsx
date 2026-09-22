@@ -1,11 +1,12 @@
-import { Heading } from "../typography";
+import { Heading, Text } from "../typography";
+
 import Link from "next/link";
 import s from "./section-heading.module.scss";
 
 type Props = {
   title: string;
   id?: string;
-  action?: { label: string; href: string };
+  action?: { label: string; href?: string };
 };
 
 export function SectionHeading({ title, id, action }: Props) {
@@ -15,9 +16,15 @@ export function SectionHeading({ title, id, action }: Props) {
         {title}
       </Heading>
       {action && (
-        <Link href={action.href} className={s.action}>
-          {action.label}
-        </Link>
+        action.href ?
+          (<Link href={action.href} className={s.action}>
+            {action.label}
+          </Link>)
+          : (
+            <Text className={s.itemLengthLabel}>
+              {action.label}
+            </Text>
+          )
       )}
     </div>
   );
