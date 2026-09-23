@@ -51,7 +51,7 @@ export function OrderSummary({ lines, totals, loading, onPay }: Props) {
         </div>
       </dl>
 
-      <Button block loading={loading} onClick={onPay} disabled={lines.length === 0}>
+      <Button block loading={loading} onClick={onPay}>
         Pay {formatPrice(totals.total, { decimals: 2 })}
       </Button>
     </aside>
