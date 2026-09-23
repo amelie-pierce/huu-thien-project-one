@@ -20,3 +20,5 @@ export type SavedCard = {
   last4: string;
   expiry: string;
 };
+
+export type PaymentStatus = "idle" | "processing" | "success" | "failed";
