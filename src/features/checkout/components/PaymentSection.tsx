@@ -1,34 +1,20 @@
 'use client';
 
-import { Checkbox, Heading, Input, Radio } from '@/components/ui';
+import { Checkbox, Field, Heading, Radio } from '@/components/ui';
 
 import { CardIcon } from '@/components/ui/icons';
-import type { CheckoutValues } from '../types';
-import type { Errors } from '@/lib/validators';
+import { NEW_CARD_FIELDS } from '../fields';
 import s from './checkout.module.scss';
 import { savedCards } from '../api';
 
 type Props = {
-  values: CheckoutValues;
-  errors: Errors<CheckoutValues>;
-  onChange: (field: keyof CheckoutValues) => (event: React.ChangeEvent<HTMLInputElement>) => void;
   method: string;
   onMethodChange: (method: string) => void;
-  sameAsShipping: boolean;
-  onSameAsShippingChange: (value: boolean) => void;
 };
 
 export const NEW_CARD = 'new-card';
 
-export function PaymentSection({
-  values,
-  errors,
-  onChange,
-  method,
-  onMethodChange,
-  sameAsShipping,
-  onSameAsShippingChange,
-}: Props) {
+export function PaymentSection({ method, onMethodChange }: Props) {
   return (
     <section className={s.section} aria-labelledby="payment-title">
       <Heading id="payment-title" className={s.sectionTitle}>
@@ -67,42 +53,16 @@ export function PaymentSection({
 
       {method === NEW_CARD && (
         <div className={s.stack}>
-          <Input
-            label="Full name on card"
-            placeholder="Placeholder"
-            value={values.cardName}
-            onChange={onChange('cardName')}
-            error={errors.cardName}
-          />
-          <Input
-            label="Card number"
-            placeholder="Placeholder"
-            inputMode="numeric"
-            value={values.cardNumber}
-            onChange={onChange('cardNumber')}
-            error={errors.cardNumber}
-          />
-          <div className={s.row2}>
-            <Input
-              label="Expiration date"
-              placeholder="MM/YY"
-              value={values.expiry}
-              onChange={onChange('expiry')}
-              error={errors.expiry}
-            />
-            <Input
-              label="CVV"
-              placeholder="Placeholder"
-              inputMode="numeric"
-              value={values.cvv}
-              onChange={onChange('cvv')}
-              error={errors.cvv}
-            />
+          <div className={s.grid3}>
+            {NEW_CARD_FIELDS.map((field) => (
+              <Field key={field.name} {...field} />
+            ))}
           </div>
           <Checkbox
+            className={s.checkboxWrap}
             label="Use shipping address as billing address"
-            checked={sameAsShipping}
-            onChange={(event) => onSameAsShippingChange(event.target.checked)}
+            name="sameAsShipping"
+            defaultChecked
           />
         </div>
       )}

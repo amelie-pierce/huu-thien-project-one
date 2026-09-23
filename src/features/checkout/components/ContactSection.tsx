@@ -1,38 +1,35 @@
 'use client';
 
-import { Heading, Input, Text } from '@/components/ui';
+import { Button, Heading, Text } from '@/components/ui';
 
-import type { CheckoutValues } from '@/features/checkout/types';
-import { Errors } from '@/lib/validators';
+import { CONTACT_FIELDS } from '@/features/checkout/fields';
+import { Field } from '@/components/ui/field/field';
 import s from './checkout.module.scss';
+import { useAuth } from '@/features/auth/auth-context';
 
-type Props = {
-  values: CheckoutValues;
-  errors: Errors<CheckoutValues>;
-  onChange: (field: keyof CheckoutValues) => (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
-
-export function ContactSection({ values, errors, onChange }: Props) {
+export function ContactSection() {
+  const { openAuth } = useAuth();
   return (
     <section className={s.section} aria-labelledby="contact-title">
       <Heading id="contact-title" className={s.sectionTitle}>
         Contact
-        <Text size='sm'>
+        <Text size="sm">
           Checking out as a guest? Enter your email to receive your order confirmation. <br />
-          Already have an account? Sign in.
+          Already have an account?{' '}
+          <Button variant="ghost" onClick={() => openAuth('signIn')}>
+            Sign in
+          </Button>
+          .
         </Text>
       </Heading>
 
       {/* TODO: Handle user */}
 
-      <Input
-        label="Email"
-        type="email"
-        placeholder="name@email.com"
-        value={values.email}
-        onChange={onChange('email')}
-        error={errors.email}
-      />
+      <div className={s.grid}>
+        {CONTACT_FIELDS.map((field) => (
+        <Field key={field.name} {...field} />
+      ))}
+      </div>
     </section>
   );
 }
