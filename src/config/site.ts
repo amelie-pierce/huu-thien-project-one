@@ -3,7 +3,7 @@ export const siteConfig = {
   nav: [
     { label: "Self", href: "/" },
     { label: "Menu", href: "/menu" },
-    { label: "Contact us", href: "/contact" },
+    { label: "Contact us", href: "#contact" },
   ],
   contact: {
     phone: "+8493 3688 247",

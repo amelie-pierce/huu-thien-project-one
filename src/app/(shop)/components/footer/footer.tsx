@@ -1,4 +1,4 @@
-import { Container } from "@/components/ui";
+import { Container, Text } from "@/components/ui";
 import {
   LogoIcon,
   FacebookIcon,
@@ -20,17 +20,17 @@ export function Footer() {
   const { contact, socials } = siteConfig;
 
   return (
-    <footer className={s.footer}>
+    <footer id="contact" className={s.footer}>
       <Container className={s.grid}>
         <div className={s.brand}>
           <span className={s.logo}>
             <LogoIcon size={64} />
           </span>
-          <p className={s.brandName}>
+          <Text className={s.brandName}>
             Life begins
             <br />
             after coffee
-          </p>
+          </Text>
         </div>
 
         <ul className={s.contact}>
@@ -49,7 +49,7 @@ export function Footer() {
         </ul>
 
         <div className={s.social}>
-          <p className={s.socialTitle}>Follow us</p>
+          <Text className={s.socialTitle}>Follow us</Text>
           <ul className={s.socialList}>
             {socials.map(({ name, href, icon }) => {
               const Icon = socialIcons[icon];

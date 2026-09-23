@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { Checkbox, Heading, Input } from "@/components/ui";
+import { Checkbox, Heading, Input, Radio } from '@/components/ui';
 
-import { CardIcon } from "@/components/ui/icons";
-import type { CheckoutValues } from "../types";
-import type { Errors } from "@/lib/validators";
-import s from "./checkout.module.scss";
-import { savedCards } from "../api";
+import { CardIcon } from '@/components/ui/icons';
+import type { CheckoutValues } from '../types';
+import type { Errors } from '@/lib/validators';
+import s from './checkout.module.scss';
+import { savedCards } from '../api';
 
 type Props = {
   values: CheckoutValues;
@@ -18,7 +18,7 @@ type Props = {
   onSameAsShippingChange: (value: boolean) => void;
 };
 
-export const NEW_CARD = "new-card";
+export const NEW_CARD = 'new-card';
 
 export function PaymentSection({
   values,
@@ -37,38 +37,32 @@ export function PaymentSection({
 
       <div className={s.cards}>
         {savedCards.map((card) => (
-          <label key={card.id} className={s.card} data-selected={method === card.id || undefined}>
-            <input
-              type="radio"
-              name="payment-method"
-              value={card.id}
-              checked={method === card.id}
-              onChange={() => onMethodChange(card.id)}
-              className={s.radio}
-            />
-            <span className={s.radioDot} aria-hidden="true" />
+          <Radio
+            key={card.id}
+            name="payment-method"
+            value={card.id}
+            checked={method === card.id}
+            onChange={() => onMethodChange(card.id)}
+            className={s.card}
+          >
             <CardIcon size={25} />
-            <span>
+            <span className={s.cardDetails}>
               <span className={s.cardName}>
                 {card.brand} * {card.last4}
               </span>
               <span className={s.cardMeta}>Expire {card.expiry}</span>
             </span>
-          </label>
+          </Radio>
         ))}
-
-        <label className={s.newCard} data-selected={method === NEW_CARD || undefined}>
-          <input
-            type="radio"
-            name="payment-method"
-            value={NEW_CARD}
-            checked={method === NEW_CARD}
-            onChange={() => onMethodChange(NEW_CARD)}
-            className={s.radio}
-          />
-          <span className={s.radioDot} aria-hidden="true" />
-          Add a new card
-        </label>
+        <Radio
+          name="payment-method"
+          value={NEW_CARD}
+          checked={method === NEW_CARD}
+          onChange={() => onMethodChange(NEW_CARD)}
+          className={s.newCard}
+        >
+          <span>Add a new card</span>
+        </Radio>
       </div>
 
       {method === NEW_CARD && (
@@ -77,7 +71,7 @@ export function PaymentSection({
             label="Full name on card"
             placeholder="Placeholder"
             value={values.cardName}
-            onChange={onChange("cardName")}
+            onChange={onChange('cardName')}
             error={errors.cardName}
           />
           <Input
@@ -85,7 +79,7 @@ export function PaymentSection({
             placeholder="Placeholder"
             inputMode="numeric"
             value={values.cardNumber}
-            onChange={onChange("cardNumber")}
+            onChange={onChange('cardNumber')}
             error={errors.cardNumber}
           />
           <div className={s.row2}>
@@ -93,7 +87,7 @@ export function PaymentSection({
               label="Expiration date"
               placeholder="MM/YY"
               value={values.expiry}
-              onChange={onChange("expiry")}
+              onChange={onChange('expiry')}
               error={errors.expiry}
             />
             <Input
@@ -101,7 +95,7 @@ export function PaymentSection({
               placeholder="Placeholder"
               inputMode="numeric"
               value={values.cvv}
-              onChange={onChange("cvv")}
+              onChange={onChange('cvv')}
               error={errors.cvv}
             />
           </div>
