@@ -1,36 +1,36 @@
 .wrap {
-  display    : inline-flex;
+  display: inline-flex;
   align-items: center;
-  gap        : spacing(8);
-  cursor     : pointer;
+  gap: spacing(8);
+  cursor: pointer;
 
   .input {
     position: absolute;
-    opacity : 0;
-    width   : 0;
-    height  : 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked+.box {
+      background: var(--color-primary);
+      border-width: 0;
+      color: var(--color-white);
+    }
+
+    &:focus-visible+.box {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
   }
 
   .box {
-    display      : grid;
-    place-items  : center;
-    width        : 20px;
-    height       : 20px;
-    border       : 1px solid var(--color-border-weak);
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--color-border-weak);
     border-radius: 4px;
-    background   : var(--color-surface);
-    color        : transparent;
-
-    .input:checked+& {
-      background  : var(--color-primary);
-      border-color: none;
-      color       : var(--color-white);
-    }
-
-    .input:focus-visible+& {
-      outline       : 2px solid var(--color-primary);
-      outline-offset: 2px;
-    }
+    background: var(--color-surface);
+    color: transparent;
   }
 
   .label {

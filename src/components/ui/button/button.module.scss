@@ -5,7 +5,7 @@
   border: none;
   border-radius: var(--radius-1);
   font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-none);
+  line-height: var(--line-height-normal);
   padding: spacing(10);
   cursor: pointer;
 
@@ -41,8 +41,8 @@
 
   &[data-variant="outline"] {
     background: var(--color-surface);
-    color: var(--color-fg);
-    border-color: var(--color-border);
+    color: var(--color-primary);
+    border: 1px solid var(--color-border-weak);
   }
 
   &[data-variant="ghost"] {
