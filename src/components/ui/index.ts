@@ -12,3 +12,4 @@ export * from "./chip-group";
 export * from "./button";
 export * from "./input";
 export * from "./checkbox";
+export * from "./radio";
