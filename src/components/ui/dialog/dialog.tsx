@@ -15,6 +15,7 @@ type Props = {
   className?: string;
   children: React.ReactNode;
   footer?: React.ReactNode;
+  footerClassName?: string;
 };
 
 export function Dialog({
@@ -26,6 +27,7 @@ export function Dialog({
   className,
   children,
   footer,
+  footerClassName,
 }: Props) {
   const ref = useRef<HTMLDialogElement>(null);
 
@@ -71,7 +73,7 @@ export function Dialog({
           </header>
         )}
         <div className={s.body}>{children}</div>
-        {footer && <footer className={s.footer}>{footer}</footer>}
+        {footer && <footer className={cn(s.footer, footerClassName)}>{footer}</footer>}
       </div>
     </dialog>
   );

@@ -104,8 +104,7 @@
     gap: spacing(11);
   }
 
-  .card,
-  .newCard {
+  .card {
     display: flex;
     align-items: center;
     gap: spacing(12);
@@ -113,7 +112,7 @@
   }
 
   .card {
-    padding: spacing(8);
+    padding: spacing(8) spacing(16);
     border: 1px solid var(--color-border-muted);
     border-radius: var(--radius-2);
     background: var(--color-surface);
@@ -121,35 +120,17 @@
     &[data-selected] {
       border-color: var(--color-primary);
     }
+
+    .cardDetails {
+      display: flex;
+      flex-direction: column;
+      gap: spacing(6);
+    }
   }
 
   .newCard {
-    font-size: var(--text-xs);
-  }
-
-  .radio {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  .radioDot {
-    flex: 0 0 auto;
-    width: 1rem;
-    height: 1rem;
-    border: 1px solid var(--color-fg-muted);
-    border-radius: 50%;
-
-    .radio:checked+& {
-      border-color: var(--color-primary);
-      border-width: 5px;
-    }
-
-    .radio:focus-visible+& {
-      outline: 2px solid var(--color-primary);
-      outline-offset: 2px;
-    }
+    margin-top: spacing(9);
+    font-size: var(--text-sm);
   }
 
   .cardName {
@@ -259,5 +240,60 @@
 
   button[data-block] {
     font-weight: var(--font-weight-bold);
+  }
+}
+
+// Payment result
+.resultBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: spacing(16);
+  padding-inline: spacing(8);
+  padding-top: spacing(71);
+  text-align: center;
+}
+
+.resultTitle {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-normal);
+  margin-top: spacing(8);
+
+  &[data-status="success"] {
+    color: var(--color-success);
+  }
+
+  &[data-status="failed"] {
+    color: var(--color-danger);
+  }
+}
+
+.resultText {
+  color: var(--color-black);
+  margin-top: spacing(16);
+}
+
+.resultActions {
+  gap: spacing(16);
+  width: 100%;
+  display: grid;
+
+  &[data-status="failed"] {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .resultPrimary {
+    @include flex-center;
+    flex: 1;
+    padding: spacing(10);
+    border-radius: var(--radius-1);
+    background: var(--color-primary);
+    color: var(--color-surface);
+    font-size: var(--text-md);
+
+    &[data-status="success"] {
+      height: 58px;
+    }
   }
 }
