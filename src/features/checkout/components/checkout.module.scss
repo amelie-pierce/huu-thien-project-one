@@ -37,6 +37,9 @@
 
     .sectionTitle {
       @extend %titleHeading;
+      display: flex;
+      flex-direction: column;
+      gap: spacing(8);
     }
 
     .sectionText {
@@ -332,4 +335,3 @@
     grid-column: 1 / -1;
   }
 }
-

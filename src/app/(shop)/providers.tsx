@@ -1,9 +1,12 @@
-"use client";
+'use client';
 
-import { CartProvider } from "@/features/cart/cart-context";
+import { AuthProvider } from '@/features/auth/auth-context';
+import { CartProvider } from '@/features/cart/cart-context';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <CartProvider>{children}</CartProvider>
+    <AuthProvider>
+      <CartProvider>{children}</CartProvider>
+    </AuthProvider>
   );
 }

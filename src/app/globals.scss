@@ -37,3 +37,16 @@ img {
 .uppercase {
   text-transform: uppercase;
 }
+
+.btn-sign-link {
+  border: none;
+  background: none;
+  font-size: inherit;
+  color: var(--color-fg);
+  text-decoration: underline;
+  cursor: pointer;
+
+  &.semibold {
+    font-weight: var(--font-weight-semibold);
+  }
+}

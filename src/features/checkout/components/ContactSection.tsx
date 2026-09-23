@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Heading, Text } from '@/components/ui';
+import { Heading, Text } from '@/components/ui';
 
 import { CONTACT_FIELDS } from '@/features/checkout/fields';
 import { Field } from '@/components/ui/field/field';
@@ -16,9 +16,9 @@ export function ContactSection() {
         <Text size="sm">
           Checking out as a guest? Enter your email to receive your order confirmation. <br />
           Already have an account?{' '}
-          <Button variant="ghost" onClick={() => openAuth('signIn')}>
+          <button className="btn-sign-link semibold" onClick={() => openAuth('signIn')}>
             Sign in
-          </Button>
+          </button>
           .
         </Text>
       </Heading>

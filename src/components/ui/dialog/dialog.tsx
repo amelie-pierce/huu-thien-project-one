@@ -16,6 +16,7 @@ type Props = {
   children: React.ReactNode;
   footer?: React.ReactNode;
   footerClassName?: string;
+  headerClassName?: string;
 };
 
 export function Dialog({
@@ -27,6 +28,7 @@ export function Dialog({
   className,
   children,
   footer,
+  headerClassName,
   footerClassName,
 }: Props) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -57,17 +59,17 @@ export function Dialog({
         event.preventDefault();
         onClose();
       }}
-      onClick={(event) => {
-        if (event.target === ref.current) onClose();
-      }}
+      // onClick={(event) => {
+      //   if (event.target === ref.current) onClose();
+      // }}
     >
       <div className={s.panel}>
         {(title || !hideClose) && (
-          <header className={s.header}>
+          <header className={cn(s.header, headerClassName)}>
             {title ? <h2 className={s.title}>{title}</h2> : <span />}
             {!hideClose && (
               <button type="button" className={s.close} onClick={onClose} aria-label="Close">
-                <CloseIcon size={20} />
+                <CloseIcon size={25} />
               </button>
             )}
           </header>

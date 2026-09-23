@@ -1,0 +1,23 @@
+.formWrap {
+  padding: spacing(16) spacing(8);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(16);
+}
+
+.switch {
+  font-size: var(--text-sm);
+  text-align: center;
+  Color: var(--color-black);
+}
+
+.formError {
+  font-size: var(--text-sm);
+  min-height: 52px;
+  padding: spacing(16);
+  border-radius: var(--radius-2);
+  background-color: var(--color-danger-light);
+  color: var(--color-danger);
+}

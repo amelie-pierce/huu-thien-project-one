@@ -1,9 +1,10 @@
-"use client";
+'use client';
 
-import { useId, useState } from "react";
-import { cn } from "@/lib/cn";
-import { EyeIcon, EyeOffIcon } from "@/components/ui/icons";
-import s from "./input.module.scss";
+import { EyeIcon, EyeOffIcon } from '@/components/ui/icons';
+import { useId, useState } from 'react';
+
+import { cn } from '@/lib/cn';
+import s from './input.module.scss';
 
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
@@ -55,7 +56,7 @@ export function PasswordInput({ label, error, className, id, ...rest }: InputPro
       <div className={s.inputWrap}>
         <input
           id={inputId}
-          type={visible ? "text" : "password"}
+          type={visible ? 'text' : 'password'}
           className={cn(s.input, s.inputWithAction)}
           data-invalid={error ? true : undefined}
           aria-invalid={error ? true : undefined}
@@ -66,7 +67,7 @@ export function PasswordInput({ label, error, className, id, ...rest }: InputPro
           type="button"
           className={s.action}
           onClick={() => setVisible((v) => !v)}
-          aria-label={visible ? "Hide password" : "Show password"}
+          aria-label={visible ? 'Hide password' : 'Show password'}
         >
           {visible ? <EyeOffIcon size={18} /> : <EyeIcon size={18} />}
         </button>
