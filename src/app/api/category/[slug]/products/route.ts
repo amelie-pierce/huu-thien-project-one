@@ -23,8 +23,6 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
     categoryId: category.id,
   };
 
-  console.log(55555, { category });
-
   const [products, total] = await Promise.all([
     prisma.product.findMany({
       where,

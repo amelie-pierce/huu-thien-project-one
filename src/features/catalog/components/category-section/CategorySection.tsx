@@ -4,7 +4,6 @@ import { SectionHeading } from "@/components/ui";
 import s from "./category-section.module.scss";
 
 export function CategorySection({ category }: { category: Category }) {
-  console.log(category);
   return (
     <section id={category.slug} className={s.section} aria-labelledby={`${category.slug}-title`}>
       <SectionHeading

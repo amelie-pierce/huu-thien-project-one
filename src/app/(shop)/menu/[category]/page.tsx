@@ -2,7 +2,7 @@ import { Container, Pagination, SectionHeading } from "@/components/ui";
 
 import { Hero } from "../../components/hero/Hero";
 import { ProductGrid } from "@/features/catalog/components/product-grid/ProductGrid";
-import { getProducts } from "@/features/catalog/api";
+import { getProducts } from "@/features/catalog/catalog.service";
 import { notFound } from "next/navigation";
 import s from "./category.module.scss";
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ProductDetail } from "@/features/catalog/components/product-detail/ProductDetail";
-import { getProductBySlug } from "@/features/catalog/api";
+import { getProductBySlug } from "@/features/catalog/catalog.service";
 import { notFound } from "next/navigation";
 
 type Props = { params: Promise<{ slug: string }> };

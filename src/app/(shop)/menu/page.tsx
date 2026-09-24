@@ -1,6 +1,6 @@
 import { Hero } from "../components/hero/Hero";
 import { MenuSection } from "@/features/catalog/components/menu-section/MenuSection";
-import { getCategoriesPreview } from "@/features/catalog/api";
+import { getCategoriesPreview } from "@/features/catalog/catalog.service";
 
 export default async function Page() {
   const categories = await getCategoriesPreview();
