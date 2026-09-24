@@ -4,6 +4,6 @@
   @if $sp == null {
     $sp: 4;
   }
-  $spacing-multiplier: $sp / $spacing;
+  $spacing-multiplier: calc($sp / $spacing);
   @return calc(var(--spacing) * $spacing-multiplier);
 }

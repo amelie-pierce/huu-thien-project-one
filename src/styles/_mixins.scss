@@ -1,5 +1,5 @@
 @use "@/styles/functions" as *;
-
+@use "sass:map";
 $breakpoints: (
   // Extra Small Mobile (Portrait): 320px – 480px
   'mobile-landscape': 481px, // Small Mobile (Landscape): 481px – 600px
@@ -11,8 +11,8 @@ $breakpoints: (
 );
 
 @mixin respond-to($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   }
