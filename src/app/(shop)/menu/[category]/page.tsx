@@ -1,4 +1,4 @@
-import { Container, Pagination, SectionHeading, clampPage } from "@/components/ui";
+import { Container, Pagination, SectionHeading } from "@/components/ui";
 import { getCategories, getCategory, getProducts } from "@/features/catalog/api";
 
 import { Hero } from "../../components/hero/Hero";
