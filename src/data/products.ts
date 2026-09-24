@@ -30,45 +30,48 @@ function build(
   });
 }
 
-export const categories: Category[] = [
-  {
-    slug: "coffee",
-    name: "Coffee",
-    products: build("coffee", [
-      { name: "Cold Brew", price: 600, image: IMAGES.hotCup, isNew: true },
-      { name: "Espresso", price: 600, image: IMAGES.hotCup, isNew: true },
-      { name: "Latte", price: 600, image: IMAGES.hotCup },
-      { name: "Cappuccino", price: 600, image: IMAGES.hotCup },
-      { name: "Black Coffee", price: 600, image: IMAGES.hotCup },
-      { name: "Americano", price: 600, image: IMAGES.hotCup },
-      { name: "Flat White", price: 650, image: IMAGES.hotCup },
-      { name: "Mocha", price: 700, image: IMAGES.hotCup },
-      { name: "Macchiato", price: 650, image: IMAGES.hotCup },
-      { name: "Cortado", price: 600, image: IMAGES.hotCup },
-      { name: "Affogato", price: 750, image: IMAGES.hotCup },
-      { name: "Ristretto", price: 550, image: IMAGES.hotCup },
-      { name: "Long Black", price: 600, image: IMAGES.hotCup },
-      { name: "Caramel Latte", price: 700, image: IMAGES.hotCup },
-    ]),
-  },
-  {
-    slug: "cold-drinks",
-    name: "Cold Drinks",
-    products: build("cold-drinks", [
-      { name: "Virgin Mojito", price: 600, image: IMAGES.icedCup, isNew: true },
-      { name: "Iced Latte", price: 600, image: IMAGES.icedCup },
-      { name: "Iced Americano", price: 600, image: IMAGES.icedCup },
-      { name: "Iced Mocha", price: 650, image: IMAGES.icedCup },
-      { name: "Lemon Iced Tea", price: 550, image: IMAGES.icedCup },
-    ]),
-  },
-  {
-    slug: "bakery",
-    name: "Bakery",
-    products: build("bakery", [
-      { name: "Muffin", price: 250, image: IMAGES.muffin, isNew: true },
-      { name: "Macaroon", price: 600, image: IMAGES.macaroon },
-      { name: "Brownie", price: 600, image: IMAGES.brownie },
-    ]),
-  },
-];
+export const categories = [];
+
+// export const categories: Category[] = [
+//   {
+//     slug: "coffee",
+//     name: "Coffee",
+//     products: build("coffee", [
+//       { name: "Cold Brew", price: 600, image: IMAGES.hotCup, isNew: true },
+//       { name: "Espresso", price: 600, image: IMAGES.hotCup, isNew: true },
+//       { name: "Latte", price: 600, image: IMAGES.hotCup },
+//       { name: "Cappuccino", price: 600, image: IMAGES.hotCup },
+//       { name: "Black Coffee", price: 600, image: IMAGES.hotCup },
+//       { name: "Americano", price: 600, image: IMAGES.hotCup },
+//       { name: "Flat White", price: 650, image: IMAGES.hotCup },
+//       { name: "Mocha", price: 700, image: IMAGES.hotCup },
+//       { name: "Macchiato", price: 650, image: IMAGES.hotCup },
+//       { name: "Cortado", price: 600, image: IMAGES.hotCup },
+//       { name: "Affogato", price: 750, image: IMAGES.hotCup },
+//       { name: "Ristretto", price: 550, image: IMAGES.hotCup },
+//       { name: "Long Black", price: 600, image: IMAGES.hotCup },
+//       { name: "Caramel Latte", price: 700, image: IMAGES.hotCup },
+//     ]),
+//   },
+//   {
+//     slug: "cold-drinks",
+//     name: "Cold Drinks",
+//     products: build("cold-drinks", [
+//       { name: "Virgin Mojito", price: 600, image: IMAGES.icedCup, isNew: true },
+//       { name: "Iced Latte", price: 600, image: IMAGES.icedCup },
+//       { name: "Iced Americano", price: 600, image: IMAGES.icedCup },
+//       { name: "Iced Mocha", price: 650, image: IMAGES.icedCup },
+//       { name: "Lemon Iced Tea", price: 550, image: IMAGES.icedCup },
+//     ]),
+//   },
+//   {
+//     slug: "bakery",
+//     name: "Bakery",
+//     products: build("bakery", [
+//       { name: "Muffin", price: 250, image: IMAGES.muffin, isNew: true },
+//       { name: "Macaroon", price: 600, image: IMAGES.macaroon },
+//       { name: "Brownie", price: 600, image: IMAGES.brownie },
+//     ]),
+//   },
+// ];
+

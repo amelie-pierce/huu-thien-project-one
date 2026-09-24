@@ -10,7 +10,7 @@ export function CategorySection({ category }: { category: Category }) {
       <SectionHeading
         id={`${category.slug}-title`}
         title={category.name}
-        action={category.total > 6 ? { label: "See all", href: `/menu/${category.slug}` } : undefined }
+        action={(category?.total || 0) > 6 ? { label: "See all", href: `/menu/${category.slug}` } : undefined }
       />
       <ProductGrid products={category.products} />
     </section>

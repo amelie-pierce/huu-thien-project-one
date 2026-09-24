@@ -17,7 +17,7 @@ export function SectionHeading({ title, id, action }: Props) {
       </Heading>
       {action && (
         action.href ?
-          (<Link href={action.href} className={s.action}>
+          (<Link href={`${action.href}#product-page`} className={s.action}>
             {action.label}
           </Link>)
           : (

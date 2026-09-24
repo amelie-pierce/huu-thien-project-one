@@ -15,10 +15,10 @@ export function AddToCartForm({ product }: { product: Product }) {
     dispatch({
       type: "add",
       line: {
-        productId: product.id,
+        productId: product.id.toString(),
         slug: product.slug,
         name: product.name,
-        image: product.image,
+        image: product.imageUrl,
         unitPrice: product.price,
         size,
       },

@@ -26,29 +26,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CategoryPage({ params, searchParams }: Props) {
   const { category: slug } = await params;
   const { page: pageParam } = await searchParams;
-
-  const category = await getCategory(slug);
-  if (!category) notFound();
-
-  const first = await getProducts({ category: slug, page: 1 });
-  const page = clampPage(pageParam, first.totalPages);
-  const { items, totalPages, total } = await getProducts({ category: slug, page });
-  console.log({ items, totalPages });
-
+  const page = Number(pageParam || 1);
+  
+  const { products, pagination, categoryName } = await getProducts(slug, page);
+  const { total, totalPages } = pagination;
+  if (!products?.length) notFound();
   return (
     <>
       <Hero />
       <Container className={s.container} id="product-page">
         <SectionHeading
-          title={category.name}
+          title={categoryName}
           action={{ label: `${total} item${total !== 1 ? 's' : ''}` }}
         />
-        <ProductGrid products={items} variant="page" />
+        <ProductGrid products={products} variant="page" />
         <div className={s.pagination}>
           <Pagination
             page={page}
             total={totalPages}
-            getHref={(p) => `/menu/${category.slug}?page=${p}#product-page`}
+            getHref={(p) => `/menu/${slug}?page=${p}#product-page`}
           />
         </div>
       </Container>

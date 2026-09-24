@@ -1,19 +1,21 @@
-import type { Category, Product } from "./types";
+import type { Category, Product } from './types';
 
-import { categories } from "@/data/products";
+import { categories } from '@/data/products';
 
 export const PAGE_SIZE = 12;
 
 export async function getCategories(): Promise<Category[]> {
-  return categories;
+  const result = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/categories`).then((res) => res.json());
+  return result;
 }
 
-export async function getCategoryNav(): Promise<Array<Pick<Category, "slug" | "name">>> {
+export async function getCategoryNav(): Promise<Array<Pick<Category, 'slug' | 'name'>>> {
   return categories.map(({ slug, name }) => ({ slug, name }));
 }
 
 export async function getCategoriesPreview(limit = 6): Promise<Category[]> {
-  return categories.map((category) => ({
+  const result = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/categories`).then((res) => res.json());
+  return result.map((category: Category) => ({
     ...category,
     products: category.products.slice(0, limit),
     total: category.products.length,
@@ -21,34 +23,29 @@ export async function getCategoriesPreview(limit = 6): Promise<Category[]> {
 }
 
 export async function getCategory(slug: string): Promise<Category | null> {
-  return categories.find((category) => category.slug === slug) ?? null;
-}
-
-export async function getProducts({
-  category,
-  page = 1,
-  pageSize = PAGE_SIZE,
-}: {
-  category: string;
-  page?: number;
-  pageSize?: number;
-}): Promise<{ items: Product[]; total: number; totalPages: number }> {
-  const found = categories.find((item) => item.slug === category);
-  const all = found?.products ?? [];
-  const totalPages = Math.max(1, Math.ceil(all.length / pageSize));
-  const start = (page - 1) * pageSize;
-
-  return { items: all.slice(start, start + pageSize), total: all.length, totalPages };
+  const result = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/category/${slug}`).then((res) => res.json());
+  return result ?? null;
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | null> {
-  for (const category of categories) {
-    const product = category.products.find((item) => item.slug === slug);
-    if (product) return product;
-  }
-  return null;
+  const result = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/product/${slug}`).then((res) =>
+    res.json()
+  );
+  return result ?? null;
 }
 
 export async function getAllProductSlugs(): Promise<string[]> {
-  return categories.flatMap((category) => category.products.map((product) => product.slug));
+  const result = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/products`).then((res) => res.json());
+  return result;
+}
+
+export async function getProducts(categorySlug: string, page = 1) {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_URL}/category/${categorySlug}/products?page=${page}`
+  ).then((res) => res.json());
+
+  if (!response) {
+    throw new Error('Failed to fetch products');
+  }
+  return response;
 }

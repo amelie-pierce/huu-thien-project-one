@@ -1,15 +1,9 @@
-import { getAllProductSlugs, getProductBySlug } from "@/features/catalog/api";
-
 import type { Metadata } from "next";
 import { ProductDetail } from "@/features/catalog/components/product-detail/ProductDetail";
+import { getProductBySlug } from "@/features/catalog/api";
 import { notFound } from "next/navigation";
 
 type Props = { params: Promise<{ slug: string }> };
-
-export async function generateStaticParams() {
-  const slugs = await getAllProductSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;

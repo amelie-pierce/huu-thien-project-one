@@ -9,13 +9,12 @@ type Props = {
 };
 
 export function ProductGrid({ products, variant = "menu" }: Props) {
-  if (products.length === 0) {
+  if (!products?.length) {
     return <Text className={s.empty}>No items here yet. Check another category.</Text>;
   }
-
   return (
     <div className={s.grid} data-variant={variant}>
-      {products.map((product) => (
+      {products?.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
     </div>
