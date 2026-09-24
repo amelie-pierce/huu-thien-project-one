@@ -14,12 +14,15 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "postinstall": "prisma generate",
-    "seed": "npx prisma db seed"
+    "seed": "npx prisma db seed",
+    "vercel-build": "prisma generate && prisma migrate deploy && next build",
+    "prisma:generate": "npx prisma generate"
   },
   "dependencies": {
     "next": "16.3.5",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "prisma": "^7.10.0"
   },
   "devDependencies": {
     "@prisma/adapter-pg": "^7.10.0",
@@ -33,7 +36,6 @@
     "eslint-config-next": "16.3.5",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.9.7",
-    "prisma": "^7.10.0",
     "sass": "^1.104.1",
     "tsx": "^4.23.15",
     "typescript": "^5"
