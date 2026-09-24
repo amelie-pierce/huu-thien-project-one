@@ -16,4 +16,5 @@ export type Category = {
   slug: string;
   name: string;
   products: Product[];
+  total: number;
 };

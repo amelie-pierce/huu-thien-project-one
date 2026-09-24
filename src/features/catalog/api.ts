@@ -16,6 +16,7 @@ export async function getCategoriesPreview(limit = 6): Promise<Category[]> {
   return categories.map((category) => ({
     ...category,
     products: category.products.slice(0, limit),
+    total: category.products.length,
   }));
 }
 

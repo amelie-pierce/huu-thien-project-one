@@ -1,7 +1,6 @@
-import { Container, SectionHeading } from "@/components/ui";
+import { Container, Pagination, SectionHeading, clampPage } from "@/components/ui";
 import { getCategories, getCategory, getProducts } from "@/features/catalog/api";
 
-import { CategorySection } from "@/features/catalog/components/category-section/CategorySection";
 import { Hero } from "../../components/hero/Hero";
 import type { Metadata } from "next";
 import { ProductGrid } from "@/features/catalog/components/product-grid/ProductGrid";
@@ -32,22 +31,27 @@ export default async function CategoryPage({ params, searchParams }: Props) {
   if (!category) notFound();
 
   const first = await getProducts({ category: slug, page: 1 });
-  const page = Math.max(1, Math.min(Number(pageParam ?? 1), first.totalPages));
-  const { items, totalPages } = await getProducts({ category: slug, page });
+  const page = clampPage(pageParam, first.totalPages);
+  const { items, totalPages, total } = await getProducts({ category: slug, page });
   console.log({ items, totalPages });
 
   return (
     <>
       <Hero />
-      <Container className={s.container}>
+      <Container className={s.container} id="product-page">
         <SectionHeading
           title={category.name}
-          action={{ label: `${items.length} item${items.length !== 1 ? "s" : ""}` }}
+          action={{ label: `${total} item${total !== 1 ? 's' : ''}` }}
         />
         <ProductGrid products={items} variant="page" />
+        <div className={s.pagination}>
+          <Pagination
+            page={page}
+            total={totalPages}
+            getHref={(p) => `/menu/${category.slug}?page=${p}#product-page`}
+          />
+        </div>
       </Container>
-
-      <CategorySection category={category} />
     </>
   );
 }
