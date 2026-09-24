@@ -1,0 +1,1 @@
+export { Pagination, clampPage } from './pagination';

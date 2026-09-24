@@ -1,0 +1,42 @@
+.pagination {
+  display: flex;
+  justify-self: center;
+  gap: spacing();
+  max-width: 320px;
+
+
+  .item {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    color: var(--color-black);
+  }
+
+  a.item:hover:not([aria-current="page"]) {
+    background: var(--color-fg-muted);
+    color: var(--color-surface);
+  }
+
+  .item[aria-current="page"] {
+    background: var(--color-primary);
+    color: var(--color-surface);
+  }
+
+  .arrows {
+    display: flex;
+    gap: spacing(8);
+
+    .arrow[data-disabled] {
+      color: #D4D4D4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .arrow {
+      display: grid;
+      place-items: center;
+    }
+  }
+}
