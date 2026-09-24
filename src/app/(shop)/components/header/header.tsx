@@ -8,7 +8,7 @@ export function Header() {
     <header className={s.header}>
       <Container className={s.inner}>
         <Nav items={siteConfig.nav as any} ></Nav>
-        <CartButton count={1} />
+        <CartButton />
       </Container>
     </header>
   );

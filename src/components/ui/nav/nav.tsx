@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/cn';
 import styles from './nav.module.scss';
 
-type NavProps = {
+export type NavProps = {
   items: { label: string; href: string }[];
   type?: 'default' | 'transparent';
   className?: string;

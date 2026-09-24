@@ -27,6 +27,7 @@ export interface Category {
   slug: string;
   description: string | null;
   products: Product[];
+  totalProducts: number;
   createdAt: Date;
   updatedAt: Date;
 }
