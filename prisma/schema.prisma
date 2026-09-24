@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/db/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String    @id @default(uuid())
+  email      String
+  createdAt DateTime  @default(now())
+}
+
+model Category {
+  id          Int       @id @default(autoincrement())
+  name        String
+  slug        String    @unique
+  description String?
+
+  products    Product[]
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Product {
+  id          Int       @id @default(autoincrement())
+  name        String
+  slug        String    @unique
+  description String?
+
+  // Base price / Small price, stored in cents
+  price       Int
+
+  isNew       Boolean   @default(false)
+  imageUrl    String
+
+  // Relation fields
+  categoryId  Int
+  category    Category  @relation(fields: [categoryId],references: [id],onDelete: Cascade)
+
+  sizes       ProductSize[]
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([categoryId])
+  @@index([slug])
+}
+
+model ProductSize {
+  id        Int     @id @default(autoincrement())
+
+  name      Size
+  price     Int     // cents
+
+  productId Int
+  product   Product @relation(fields: [productId],references: [id],onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([productId, name])
+  @@index([productId])
+}
+
+enum Size {
+  Small
+  Medium
+  Large
+}

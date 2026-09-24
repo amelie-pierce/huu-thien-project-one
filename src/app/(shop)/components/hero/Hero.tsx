@@ -18,7 +18,7 @@ export function Hero() {
         </div>
         <div className={s.media}>
           <Image
-            src="/images/shop/3-cups.png"
+            src="/images/menu/3-cups.png"
             alt="Three takeaway coffee cups"
             width={537}
             height={358}
