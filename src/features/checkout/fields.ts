@@ -14,7 +14,7 @@ export const CONTACT_FIELDS: FieldConfig[] = [
       valueMissing: 'Please enter your email',
       typeMismatch: "This doesn't look like a valid email address",
     },
-    span: "full"
+    span: 'full',
   },
 ];
 
@@ -55,7 +55,7 @@ export const ADDRESS_FIELDS: FieldConfig[] = [
     autoComplete: 'country-name',
     required: true,
     messages: REQUIRED,
-    span: "full",
+    span: 'full',
   },
   {
     name: 'address1',
@@ -64,14 +64,14 @@ export const ADDRESS_FIELDS: FieldConfig[] = [
     autoComplete: 'address-line1',
     required: true,
     messages: REQUIRED,
-    span: "full",
+    span: 'full',
   },
   {
     name: 'address2',
     label: 'Address line 2 (optional)',
     placeholder: 'Placeholder',
     autoComplete: 'address-line2',
-    span: "full",
+    span: 'full',
   },
   {
     name: 'city',
@@ -111,7 +111,7 @@ export const NEW_CARD_FIELDS: FieldConfig[] = [
     autoComplete: 'cc-name',
     required: true,
     messages: REQUIRED,
-    span: "full",
+    span: 'full',
   },
   {
     name: 'cardNumber',
@@ -124,7 +124,7 @@ export const NEW_CARD_FIELDS: FieldConfig[] = [
     validate: (value) =>
       /^\d{16}$/.test(value.replace(/\s/g, '')) ? '' : 'Card number must be 16 digits',
     messages: REQUIRED,
-    span: "full",
+    span: 'full',
   },
   {
     name: 'expiry',
