@@ -1,9 +1,8 @@
 import { Container, Pagination, SectionHeading } from "@/components/ui";
-import { getCategories, getCategory, getProducts } from "@/features/catalog/api";
 
 import { Hero } from "../../components/hero/Hero";
-import type { Metadata } from "next";
 import { ProductGrid } from "@/features/catalog/components/product-grid/ProductGrid";
+import { getProducts } from "@/features/catalog/api";
 import { notFound } from "next/navigation";
 import s from "./category.module.scss";
 
@@ -12,16 +11,16 @@ type Props = {
   searchParams: Promise<{ page?: string }>;
 };
 
-export async function generateStaticParams() {
-  const categories = await getCategories();
-  return categories.map((category) => ({ category: category.slug }));
-}
+// export async function generateStaticParams() {
+//   const categories = await getCategories();
+//   return categories.map((category) => ({ category: category.slug }));
+// }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { category: slug } = await params;
-  const category = await getCategory(slug);
-  return { title: category ? category.name : "Menu" };
-}
+// export async function generateMetadata({ params }: Props): Promise<Metadata> {
+//   const { category: slug } = await params;
+//   const category = await getCategory(slug);
+//   return { title: category ? category.name : "Menu" };
+// }
 
 export default async function CategoryPage({ params, searchParams }: Props) {
   const { category: slug } = await params;
