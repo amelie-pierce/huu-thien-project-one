@@ -6,6 +6,7 @@ import { cartReducer, type CartAction } from "./cart-reducer";
 import type { CartLine } from "./types";
 
 const STORAGE_KEY = "cart";
+const EMPTY: CartLine[] = [];
 
 type CartContextValue = {
   lines: CartLine[];
@@ -20,14 +21,15 @@ type CartContextValue = {
 const CartContext = createContext<CartContextValue | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [lines, dispatch] = useReducer(cartReducer, []);
+  const [lines, dispatch] = useReducer(cartReducer, EMPTY);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    dispatch({ type: "hydrate", lines: storage.get<CartLine[]>(STORAGE_KEY, []) });
+    dispatch({ type: "hydrate", lines: storage.get<CartLine[]>(STORAGE_KEY, EMPTY) });
   }, []);
 
   useEffect(() => {
+    if (lines === EMPTY) return;
     storage.set(STORAGE_KEY, lines);
   }, [lines]);
 
