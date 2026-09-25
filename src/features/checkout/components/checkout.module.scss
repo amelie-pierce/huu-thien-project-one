@@ -21,6 +21,9 @@
     gap: spacing(48);
     min-width: 0;
 
+    &[data-auth="signed"] {
+        gap: spacing(32);
+      }
 
     // Section
     .section {
@@ -40,11 +43,22 @@
       display: flex;
       flex-direction: column;
       gap: spacing(8);
-    }
 
-    .sectionText {
-      font-size: var(--text-xs);
-      color: var(--color-fg-muted);
+      .subText {
+        font-size: var(--text-sm);
+        color: var(--color-black);
+        line-height: var(--line-height-none);
+
+        &[data-auth="signed"] {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+      }
+
+      .btn-sign-link {
+        font-size: var(--text-md) !important;
+      }
     }
 
     .inlineLink {

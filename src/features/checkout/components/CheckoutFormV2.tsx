@@ -78,7 +78,7 @@ export function CheckoutFormV2() {
   return (
     <>
       <Container className={s.layout}>
-        <form ref={formRef} id="checkout-form" className={s.main} onSubmit={handleSubmit} noValidate>
+        <form ref={formRef} id="checkout-form" className={s.main} data-auth={user ? 'signed' : 'guest'} onSubmit={handleSubmit} noValidate>
           <ContactSection />
           <DeliverySection />
           <PaymentSection cards={cards} method={method} onMethodChange={setMethod} />

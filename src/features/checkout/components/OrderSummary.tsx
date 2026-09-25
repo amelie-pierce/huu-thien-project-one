@@ -10,10 +10,11 @@ type Props = {
   lines: CartLine[];
   totals: { subtotal: number; shipping: number; tax: number; total: number };
   loading: boolean;
+  disabled?: boolean;
   onPay: () => void;
 };
 
-export function OrderSummary({ lines, totals, loading, onPay }: Props) {
+export function OrderSummary({ lines, totals, loading, disabled, onPay }: Props) {
   return (
     <aside className={s.summary} aria-label="Order summary">
       <Heading className={s.summaryTitle}>Order Summary</Heading>
@@ -51,7 +52,7 @@ export function OrderSummary({ lines, totals, loading, onPay }: Props) {
         </div>
       </dl>
 
-      <Button block loading={loading} onClick={onPay}>
+      <Button block loading={loading} disabled={disabled} onClick={onPay}>
         Pay {formatPrice(totals.total, { decimals: 2 })}
       </Button>
     </aside>
