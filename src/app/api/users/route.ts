@@ -1,27 +1,38 @@
+import { getUsers, signUp } from '@/features/auth/auth.service';
+
 import { NextResponse } from 'next/server';
-import { prisma } from '@/db/client';
+
 export async function POST(request: Request) {
-    
-  const { email } = await request.json();
+  const { email, password } = await request.json();
 
-  const user = await prisma.user.create({
-    data: {
-      email,
-    },
-  });
+  if (!email || !password) {
+    return NextResponse.json(
+      { success: false, message: 'Email and password are required' },
+      { status: 400 }
+    );
+  }
 
-  return NextResponse.json(
-    {
-      success: true,
-      message: 'User Created!',
-      data: user,
-    },
-    { status: 201 }
-  );
+  try {
+    const user = await signUp(email, password);
+    return NextResponse.json(
+      {
+        success: true,
+        message: 'User Created!',
+        data: user,
+      },
+      { status: 201 }
+    );
+  } catch (error) {
+    const duplicate = error instanceof Error && error.message === 'Email already registered';
+    return NextResponse.json(
+      { success: false, message: duplicate ? error.message : 'Internal Server Error' },
+      { status: duplicate ? 409 : 500 }
+    );
+  }
 }
 
 export async function GET() {
-  const users = await prisma.user.findMany();
+  const users = await getUsers();
 
   return NextResponse.json(
     {

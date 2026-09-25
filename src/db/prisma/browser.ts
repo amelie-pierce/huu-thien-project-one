@@ -37,3 +37,23 @@ export type Product = Prisma.ProductModel
  * 
  */
 export type ProductSize = Prisma.ProductSizeModel
+/**
+ * Model Order
+ * 
+ */
+export type Order = Prisma.OrderModel
+/**
+ * Model OrderItem
+ * 
+ */
+export type OrderItem = Prisma.OrderItemModel
+/**
+ * Model SavedCard
+ * 
+ */
+export type SavedCard = Prisma.SavedCardModel
+/**
+ * Model Session
+ * 
+ */
+export type Session = Prisma.SessionModel

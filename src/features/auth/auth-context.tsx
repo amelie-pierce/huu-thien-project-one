@@ -2,11 +2,7 @@
 
 import type { AuthView, User } from './types';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import { signInRequest, signUpRequest } from './api';
-
-import { storage } from '@/lib/storage';
-
-const STORAGE_KEY = 'user';
+import { currentUserRequest, signInRequest, signOutRequest, signUpRequest } from './actions';
 
 type AuthContextValue = {
   user: User | null;
@@ -15,7 +11,7 @@ type AuthContextValue = {
   closeAuth: () => void;
   signIn: (email: string, password: string) => Promise<void>;
   signUp: (email: string, password: string) => Promise<void>;
-  signOut: () => void;
+  signOut: () => Promise<void>;
 };
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -25,7 +21,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [view, setView] = useState<AuthView | null>(null);
 
   useEffect(() => {
-    setUser(storage.get<User | null>(STORAGE_KEY, null));
+    currentUserRequest().then(setUser);
   }, []);
 
   const value = useMemo<AuthContextValue>(
@@ -35,20 +31,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       openAuth: setView,
       closeAuth: () => setView(null),
       async signIn(email, password) {
-        const next = await signInRequest(email, password);
-        setUser(next);
-        storage.set(STORAGE_KEY, next);
+        setUser(await signInRequest(email, password));
         setView(null);
       },
       async signUp(email, password) {
-        const next = await signUpRequest(email, password);
-        setUser(next);
-        storage.set(STORAGE_KEY, next);
+        setUser(await signUpRequest(email, password));
         setView(null);
       },
-      signOut() {
+      async signOut() {
+        await signOutRequest();
         setUser(null);
-        storage.remove(STORAGE_KEY);
       },
     }),
     [user, view]

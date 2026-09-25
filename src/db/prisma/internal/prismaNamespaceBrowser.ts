@@ -54,7 +54,11 @@ export const ModelName = {
   User: 'User',
   Category: 'Category',
   Product: 'Product',
-  ProductSize: 'ProductSize'
+  ProductSize: 'ProductSize',
+  Order: 'Order',
+  OrderItem: 'OrderItem',
+  SavedCard: 'SavedCard',
+  Session: 'Session'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -76,6 +80,7 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 export const UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
+  passwordHash: 'passwordHash',
   createdAt: 'createdAt'
 } as const
 
@@ -120,6 +125,60 @@ export const ProductSizeScalarFieldEnum = {
 } as const
 
 export type ProductSizeScalarFieldEnum = (typeof ProductSizeScalarFieldEnum)[keyof typeof ProductSizeScalarFieldEnum]
+
+
+export const OrderScalarFieldEnum = {
+  id: 'id',
+  status: 'status',
+  email: 'email',
+  name: 'name',
+  phone: 'phone',
+  country: 'country',
+  address1: 'address1',
+  address2: 'address2',
+  city: 'city',
+  state: 'state',
+  postalCode: 'postalCode',
+  total: 'total',
+  userId: 'userId',
+  createdAt: 'createdAt'
+} as const
+
+export type OrderScalarFieldEnum = (typeof OrderScalarFieldEnum)[keyof typeof OrderScalarFieldEnum]
+
+
+export const OrderItemScalarFieldEnum = {
+  id: 'id',
+  size: 'size',
+  unitPrice: 'unitPrice',
+  qty: 'qty',
+  orderId: 'orderId',
+  productId: 'productId'
+} as const
+
+export type OrderItemScalarFieldEnum = (typeof OrderItemScalarFieldEnum)[keyof typeof OrderItemScalarFieldEnum]
+
+
+export const SavedCardScalarFieldEnum = {
+  id: 'id',
+  brand: 'brand',
+  last4: 'last4',
+  expiry: 'expiry',
+  userId: 'userId',
+  createdAt: 'createdAt'
+} as const
+
+export type SavedCardScalarFieldEnum = (typeof SavedCardScalarFieldEnum)[keyof typeof SavedCardScalarFieldEnum]
+
+
+export const SessionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt'
+} as const
+
+export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
 
 
 export const SortOrder = {

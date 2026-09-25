@@ -16,3 +16,11 @@ export const Size = {
 } as const
 
 export type Size = (typeof Size)[keyof typeof Size]
+
+
+export const OrderStatus = {
+  PAID: 'PAID',
+  FAILED: 'FAILED'
+} as const
+
+export type OrderStatus = (typeof OrderStatus)[keyof typeof OrderStatus]
