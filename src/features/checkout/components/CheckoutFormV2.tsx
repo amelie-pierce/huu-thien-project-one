@@ -1,30 +1,45 @@
 'use client';
 
-import { NEW_CARD, PaymentSection } from './PaymentSection';
-import { useRef, useState } from 'react';
+import type { CheckoutValues, PaymentStatus, SavedCard } from '../types';
+import { createOrder, getSavedCards } from '../actions';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { ContactSection } from './ContactSection';
 import { Container } from '@/components/ui';
 import { DeliverySection } from './DeliverySection';
+import { NEW_CARD } from '../constants';
 import { OrderSummary } from './OrderSummary';
 import { PaymentResultModal } from './PaymentResultModal';
-import { PaymentStatus } from '../types';
+import { PaymentSection } from './PaymentSection';
 import s from './checkout.module.scss';
-import { submitPayment } from '../api';
+import { useAuth } from '@/features/auth/auth-context';
 import { useCart } from '@/features/cart/cart-context';
 
 export function CheckoutFormV2() {
   const formRef = useRef<HTMLFormElement>(null);
-  const newCardRef = useRef<HTMLFieldSetElement>(null);
+  const { user } = useAuth();
+  const [cards, setCards] = useState<SavedCard[]>([]);
   const [method, setMethod] = useState<string>(NEW_CARD);
   const { lines, subtotal, dispatch } = useCart();
   const [status, setStatus] = useState<PaymentStatus>('idle');
 
-  function handleFormChange(event: React.FormEvent<HTMLFormElement>) {
-    const target = event.target as HTMLElement & { name?: string; value?: string };
-    if (target.name !== 'paymentMethod' || !newCardRef.current) return;
-    newCardRef.current.disabled = target.value !== NEW_CARD;
+  const fetchCards = useCallback(
+    () => (user ? getSavedCards() : Promise.resolve<SavedCard[]>([])),
+    [user]
+  );
+
+  function applyCards(list: SavedCard[]) {
+    setCards(list);
+    setMethod(list[0]?.id ?? NEW_CARD);
   }
+
+  useEffect(() => {
+    let active = true;
+    fetchCards().then((list) => active && applyCards(list));
+    return () => {
+      active = false;
+    };
+  }, [fetchCards]);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -35,15 +50,27 @@ export function CheckoutFormV2() {
       return;
     }
 
-    const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+    if (!lines.length || status === 'processing') return;
+
+    const values = Object.fromEntries(new FormData(form)) as CheckoutValues;
 
     setStatus('processing');
-    const result = await submitPayment({ cardNumber: data.cardNumber });
+    try {
+      const result = await createOrder({
+        values,
+        paymentMethod: method,
+        lines: lines.map(({ productId, size, qty }) => ({ productId, size, qty })),
+      });
 
-    if (result.ok) {
-      dispatch({ type: 'clear' });
-      setStatus('success');
-    } else {
+      if (result.ok) {
+        dispatch({ type: 'clear' });
+        form.reset();
+        applyCards(await fetchCards());
+        setStatus('success');
+      } else {
+        setStatus('failed');
+      }
+    } catch {
       setStatus('failed');
     }
   }
@@ -51,22 +78,16 @@ export function CheckoutFormV2() {
   return (
     <>
       <Container className={s.layout}>
-        <form
-          ref={formRef}
-          id="checkout-form"
-          className={s.main}
-          onSubmit={handleSubmit}
-          onChange={handleFormChange}
-          noValidate
-        >
+        <form ref={formRef} id="checkout-form" className={s.main} onSubmit={handleSubmit} noValidate>
           <ContactSection />
           <DeliverySection />
-          <PaymentSection method={method} onMethodChange={(newMethod) => setMethod(newMethod)} />
+          <PaymentSection cards={cards} method={method} onMethodChange={setMethod} />
         </form>
         <OrderSummary
           lines={lines}
           totals={{ subtotal, shipping: 0, tax: 0, total: subtotal }}
           loading={status === 'processing'}
+          disabled={!lines.length}
           onPay={() => formRef.current?.requestSubmit()}
         />
       </Container>

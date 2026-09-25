@@ -95,7 +95,7 @@ export const ADDRESS_FIELDS: FieldConfig[] = [
     placeholder: 'Placeholder',
     autoComplete: 'postal-code',
     required: true,
-    pattern: '[A-Za-z0-9 -]{3,12}',
+    pattern: '[A-Za-z0-9 \\-]{3,12}',
     messages: {
       ...REQUIRED,
       patternMismatch: 'Enter a valid postal code',

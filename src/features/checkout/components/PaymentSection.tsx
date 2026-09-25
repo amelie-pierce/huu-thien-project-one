@@ -3,18 +3,18 @@
 import { Checkbox, Field, Heading, Radio } from '@/components/ui';
 
 import { CardIcon } from '@/components/ui/icons';
+import { NEW_CARD } from '../constants';
 import { NEW_CARD_FIELDS } from '../fields';
+import type { SavedCard } from '../types';
 import s from './checkout.module.scss';
-import { savedCards } from '../api';
 
 type Props = {
+  cards: SavedCard[];
   method: string;
   onMethodChange: (method: string) => void;
 };
 
-export const NEW_CARD = 'new-card';
-
-export function PaymentSection({ method, onMethodChange }: Props) {
+export function PaymentSection({ cards, method, onMethodChange }: Props) {
   return (
     <section className={s.section} aria-labelledby="payment-title">
       <Heading id="payment-title" className={s.sectionTitle}>
@@ -22,7 +22,7 @@ export function PaymentSection({ method, onMethodChange }: Props) {
       </Heading>
 
       <div className={s.cards}>
-        {savedCards.map((card) => (
+        {cards.map((card) => (
           <Radio
             key={card.id}
             name="payment-method"
