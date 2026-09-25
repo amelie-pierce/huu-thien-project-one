@@ -1,5 +1,6 @@
 import type { Category, Product } from './types';
 
+import { cache } from 'react';
 import { prisma } from '@/db/client';
 
 export const PAGE_SIZE = 12;
@@ -31,12 +32,12 @@ export async function getCategory(slug: string): Promise<Category | null> {
   return { ...category, totalProducts: category.products.length } as Category;
 }
 
-export async function getProductBySlug(slug: string) {
-  return prisma.product.findUnique({
+export const getProductBySlug = cache(async (slug: string) =>
+  prisma.product.findUnique({
     where: { slug },
     include: { sizes: true, category: true },
-  });
-}
+  })
+);
 
 export async function getAllProductSlugs(): Promise<string[]> {
   const products = await prisma.product.findMany({ select: { slug: true } });
