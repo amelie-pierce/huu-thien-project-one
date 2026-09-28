@@ -17,9 +17,9 @@ const CONTROLS = [
   { keys: ['G'], label: 'toggle ground grid' },
 ];
 
-/** Keyboard/mouse guide. Collapsed by default; toggle with H or the header button. */
+/** Keyboard/mouse guide. Open by default; toggle with H or the header button. */
 export function ControlsHud() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {

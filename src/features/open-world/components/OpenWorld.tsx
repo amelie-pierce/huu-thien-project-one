@@ -20,6 +20,7 @@ const OpenWorldCanvas = dynamic(() => import('./OpenWorldCanvas'), {
 
 const BOUNDS = computeBounds(WORLD_CONFIG.map);
 const MENU_HREF = '/menu';
+const CREDITS_HREF = '/open-world/credits';
 
 export function OpenWorld() {
   const isDesktop = useIsDesktop();
@@ -42,18 +43,23 @@ export function OpenWorld() {
     <main className={s.root}>
       <OpenWorldCanvas onStats={setStats} view={view} />
       <div className={s.topLeft}>
-        <Link href={MENU_HREF} className={s.backLink}>
+        <Link href={MENU_HREF} className={s.hudLink}>
           ← Back to menu
         </Link>
         <ControlsHud />
       </div>
-      <DebugPanel
-        stats={stats}
-        config={WORLD_CONFIG}
-        bounds={BOUNDS}
-        view={view}
-        onViewChange={setView}
-      />
+      <div className={s.topRight}>
+        <DebugPanel
+          stats={stats}
+          config={WORLD_CONFIG}
+          bounds={BOUNDS}
+          view={view}
+          onViewChange={setView}
+        />
+        <Link href={CREDITS_HREF} className={s.hudLink}>
+          Credits
+        </Link>
+      </div>
     </main>
   );
 }

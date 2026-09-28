@@ -8,16 +8,17 @@ import '@babylonjs/core/Lights/Shadows/shadowGeneratorSceneComponent';
 
 /** Sky color, fog and lights. Returns the shadow generator for casters to register. */
 export function createEnvironment(scene: Scene) {
-  scene.clearColor = new Color4(0.62, 0.8, 0.95, 1);
+  // Pale winter sky; fog matches it so distant mountains fade into the sky.
+  scene.clearColor = new Color4(0.74, 0.84, 0.93, 1);
   scene.ambientColor = new Color3(0.3, 0.3, 0.3);
 
   scene.fogMode = Scene.FOGMODE_EXP2;
-  scene.fogDensity = 0.006;
-  scene.fogColor = new Color3(0.62, 0.8, 0.95);
+  scene.fogDensity = 0.004;
+  scene.fogColor = new Color3(0.74, 0.84, 0.93);
 
   const hemi = new HemisphericLight('sky-light', new Vector3(0, 1, 0), scene);
   hemi.intensity = 0.65;
-  hemi.groundColor = new Color3(0.35, 0.4, 0.3);
+  hemi.groundColor = new Color3(0.55, 0.6, 0.68); // cool bounce light off the snow
 
   const sun = new DirectionalLight('sun', new Vector3(-0.5, -1, -0.4), scene);
   sun.position = new Vector3(60, 100, 50);

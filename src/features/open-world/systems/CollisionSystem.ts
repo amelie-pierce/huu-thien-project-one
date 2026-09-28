@@ -1,6 +1,6 @@
 import type { Player } from '../entities/player';
 import type { GameSystem } from '../types';
-import type { ColliderWorld } from '../world/colliders';
+import { type ColliderWorld, penetration } from '../world/colliders';
 
 /** A few passes settle the player when touching several obstacles at once. */
 const ITERATIONS = 3;
@@ -12,7 +12,7 @@ const ITERATIONS = 3;
 export class CollisionSystem implements GameSystem {
   constructor(
     private readonly player: Player,
-    private readonly colliders: ColliderWorld,
+    private readonly colliders: ColliderWorld
   ) {}
 
   update(): void {
@@ -23,19 +23,10 @@ export class CollisionSystem implements GameSystem {
       let resolved = true;
 
       for (const c of this.colliders.query(pos.x, pos.z, radius)) {
-        const dx = pos.x - c.x;
-        const dz = pos.z - c.z;
-        const minDist = radius + c.radius;
-        const distSq = dx * dx + dz * dz;
-        if (distSq >= minDist * minDist) continue;
-
-        const dist = Math.sqrt(distSq);
-        // Exactly centered on the obstacle: pick any direction to escape.
-        const nx = dist > 1e-6 ? dx / dist : 1;
-        const nz = dist > 1e-6 ? dz / dist : 0;
-        const push = minDist - dist;
-        pos.x += nx * push;
-        pos.z += nz * push;
+        const hit = penetration(c, pos.x, pos.z, radius);
+        if (!hit) continue;
+        pos.x += hit.nx * hit.depth;
+        pos.z += hit.nz * hit.depth;
         resolved = false;
       }
 
