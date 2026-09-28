@@ -9,5 +9,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include respond-below('mobile-custom') {
+      min-width: 0;
+    }
+  }
+
+  .inner .nav {
+    @include respond-below('mobile-custom') {
+      flex: 1 1 0%;
+      width: auto;
+      max-width: 100%;
+      min-width: 0;
+      padding: spacing(12) spacing(10);
+
+      ul {
+        min-width: 0;
+        gap: spacing(2);
+
+        li a {
+          padding: spacing(2);
+          white-space: nowrap;
+        }
+      }
+    }
   }
 }

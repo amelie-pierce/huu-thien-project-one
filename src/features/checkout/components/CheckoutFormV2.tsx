@@ -27,7 +27,7 @@ export function CheckoutFormV2() {
 
   useEffect(() => {
     if (!lines.length && status === 'idle') {
-      router.replace('/');
+      router.replace('/menu');
     }
   }, [lines.length, status, router]);
 

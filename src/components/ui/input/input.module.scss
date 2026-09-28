@@ -20,6 +20,10 @@
     background   : var(--color-surface);
     font-size    : var(--text-sm);
 
+    @include respond-below('mobile-custom') {
+      font-size: var(--text-md);
+    }
+
     &::placeholder {
       color  : var(--input-placeholder);
       opacity: 0.7;
