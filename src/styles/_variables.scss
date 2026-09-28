@@ -1,1 +1,14 @@
+$root-font-size: 16px;
 $spacing: 4;
+
+$breakpoints: (
+  // Extra Small Mobile (Portrait): 320px – 480px
+  'mobile-portrait': 320px, // Extra Small Mobile (Portrait): 320px – 480px
+  'mobile-custom': 439px,
+  'mobile-landscape': 481px, // Small Mobile (Landscape): 481px – 600px
+  'tablet-portrait': 601px, // Small Tablets (Portrait): 601px – 768px
+  'tablet-landscape': 769px, // Large Tablets (Landscape): 769px – 1024px
+  'laptop': 1025px, // Small Desktops and Laptops: 1025px – 1280px
+  'desktop-large': 1281px, // Large Desktops and High-Resolution Screens: 1281px – 1440px
+  'desktop-xl': 1441px // Extra-Large Desktops: 1441px and up
+);

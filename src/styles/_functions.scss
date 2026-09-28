@@ -1,4 +1,14 @@
 @use "@/styles/variables" as *;
+@use "sass:map";
+@use "sass:math";
+
+@function breakpoint($name) {
+  @return map.get($breakpoints, $name);
+}
+
+@function rem($px) {
+  @return math.div($px, $root-font-size) * 1rem;
+}
 
 @function spacing($sp: null) {
   @if $sp == null {
@@ -6,4 +16,22 @@
   }
   $spacing-multiplier: calc($sp / $spacing);
   @return calc(var(--spacing) * $spacing-multiplier);
+}
+
+@function fluid($min, $max, $min-breakpoint, $max-breakpoint) {
+  $min-width: breakpoint($min-breakpoint);
+  $max-width: breakpoint($max-breakpoint);
+
+  $slope: math.div(
+    $max - $min,
+    $max-width - $min-width
+  );
+
+  $intercept: $min - ($slope * $min-width);
+
+  @return clamp(
+    rem($min),
+    calc(#{rem($intercept)} + #{$slope * 100}vw),
+    rem($max)
+  );
 }

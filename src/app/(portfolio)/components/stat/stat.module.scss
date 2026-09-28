@@ -14,7 +14,11 @@
     font-size: spacing(20);
     color: var(--color-text-on-bg-secondary);
     font-weight: var(--font-weight-semibold);
-    line-height: var(--line-height-normal);
+    line-height: var(--line-height-snug);
     text-transform: uppercase;
+
+    @include respond-to('laptop') {
+      line-height: var(--line-height-normal);
+    }
   }
 }

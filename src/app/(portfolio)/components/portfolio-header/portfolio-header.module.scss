@@ -11,4 +11,29 @@
   @include respond-to('laptop') {
     padding: spacing(32);
   }
+
+  @include respond-below('mobile-custom') {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+.header .nav {
+  @include respond-below('mobile-custom') {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    flex: 1 1 0%;
+    height: auto;
+    padding: spacing(12);
+
+    ul {
+      min-width: 0;
+      gap: spacing(4);
+
+      li a {
+        padding: spacing(4);
+      }
+    }
+  }
 }

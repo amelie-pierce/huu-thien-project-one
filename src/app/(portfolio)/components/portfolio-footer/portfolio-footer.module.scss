@@ -18,8 +18,30 @@
     flex-direction: column;
     align-items: center;
     gap: spacing(4);
+
+    @include respond-below('mobile-custom') {
+      width: 100%;
+      min-width: 0;
+    }
   }
 
+  .nav {
+    @include respond-below('mobile-custom') {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      padding: spacing(8);
+
+      ul {
+        min-width: 0;
+        gap: spacing(4);
+
+        li a {
+          padding: spacing(4);
+        }
+      }
+    }
+  }
 
   .divider {
     width: 100%;

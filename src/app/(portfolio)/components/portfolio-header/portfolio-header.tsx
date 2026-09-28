@@ -8,7 +8,7 @@ export default function PortfolioHeader() {
 
     return (
         <header className={styles.header}>
-            <Nav items={navItems} />
+            <Nav items={navItems} className={styles.nav} />
         </header>
     );
 }
