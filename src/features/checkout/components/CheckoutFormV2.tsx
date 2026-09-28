@@ -14,14 +14,22 @@ import { PaymentSection } from './PaymentSection';
 import s from './checkout.module.scss';
 import { useAuth } from '@/features/auth/auth-context';
 import { useCart } from '@/features/cart/cart-context';
+import { useRouter } from 'next/navigation';
 
 export function CheckoutFormV2() {
   const formRef = useRef<HTMLFormElement>(null);
+  const router = useRouter();
   const { user } = useAuth();
   const [cards, setCards] = useState<SavedCard[]>([]);
   const [method, setMethod] = useState<string>(NEW_CARD);
   const { lines, subtotal, dispatch } = useCart();
   const [status, setStatus] = useState<PaymentStatus>('idle');
+
+  useEffect(() => {
+    if (!lines.length && status === 'idle') {
+      router.replace('/');
+    }
+  }, [lines.length, status, router]);
 
   const fetchCards = useCallback(
     () => (user ? getSavedCards() : Promise.resolve<SavedCard[]>([])),
@@ -73,6 +81,10 @@ export function CheckoutFormV2() {
     } catch {
       setStatus('failed');
     }
+  }
+
+  if (!lines.length && status === 'idle') {
+    return null;
   }
 
   return (
