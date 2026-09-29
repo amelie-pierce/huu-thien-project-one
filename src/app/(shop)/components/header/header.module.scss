@@ -1,9 +1,9 @@
 .header {
-  padding-block: spacing(16);
+  padding-block: spacing(32);
 
-  @include respond-to("tablet-portrait") {
-    padding-block: spacing(32);
-  }
+  // @include respond-to("tablet-portrait") {
+  //   padding-block: spacing(32);
+  // }
 
   .inner {
     display: flex;

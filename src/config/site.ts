@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Life Begins After Coffee",
   nav: [
-    { label: "Self", href: "/" },
+    { label: "Seft", href: "/" },
     { label: "Menu", href: "/menu" },
     { label: "Contact us", href: "#contact" },
   ],

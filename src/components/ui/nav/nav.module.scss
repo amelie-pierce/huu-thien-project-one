@@ -5,8 +5,8 @@
   padding: spacing(20);
   border-radius: var(--radius-full);
   background: var(--color-primary);
-  width: fit-content;
-  max-width: 406px;
+  width: 100%;
+  max-width: 312px;
   height: 72px;
 
   ul {
@@ -21,7 +21,7 @@
     height: 100%;
 
     li a {
-      color: var(--color-white);
+      color: var(--color-on-primary);
       padding: spacing(10);
     }
   }

@@ -74,7 +74,6 @@
     --text-3xl: #{rem(32px)};
     --text-4xl: #{rem(36px)};
     --text-5xl: #{rem(48px)};
-    --text-hero: clamp(3rem, 6vw, 6rem);
 
     --text-display-xs: #{rem(24px)};
     --text-display-sm: #{rem(32px)};
@@ -138,6 +137,8 @@
 
     --color-overlay: var(--color-black-alpha-30);
     --color-disabled: var(--color-neutral-200);
+
+    --text-hero:  #{fluid(48px, 96px,'mobile-custom', 'laptop')};
 }
 
 /* Component-specific tokens */
@@ -185,7 +186,7 @@
     --color-bg: var(--color-charcoal-500);
     --color-surface: var(--color-neutral-600);
     --color-primary: var(--color-neutral-600);
-    --color-on-primary: var(--color-cream-500);
+    --color-on-primary: var(--color-white);
     --color-bg-accent: var(--color-neutral-400);
     --color-bg-accent_hover: var(--color-neutral-600);
     --color-text-primary: var(--color-white);
