@@ -9,6 +9,7 @@ import s from './debug-panel.module.scss';
 const TOGGLE_PANEL_KEY = 'Backquote';
 const TOGGLE_WIREFRAME_KEY = 'KeyM';
 const TOGGLE_GRID_KEY = 'KeyG';
+const TOGGLE_SNOW_KEY = 'KeyN';
 
 type Row = [label: string, value: string];
 interface Section {
@@ -48,6 +49,7 @@ function statsSections(stats: GameStats): Section[] {
         ['materials', String(scene.materials)],
         ['lights', String(scene.lights)],
         ['colliders', String(scene.colliders)],
+        ['particles', scene.particles.toLocaleString()],
       ],
     },
     {
@@ -104,6 +106,7 @@ interface DebugPanelProps {
 }
 
 const toggleWireframe = (v: ViewSettings): ViewSettings => ({ ...v, wireframe: !v.wireframe });
+const toggleSnow = (v: ViewSettings): ViewSettings => ({ ...v, snow: !v.snow });
 const toggleGrid = (v: ViewSettings): ViewSettings => ({
   ...v,
   grid: { ...v.grid, visible: !v.grid.visible },
@@ -114,7 +117,7 @@ const clampCellSize = (n: number) =>
 
 /**
  * Live game stats + full config + view toggles.
- * Keys: ` toggles the panel, M toggles wireframe, G toggles the ground grid.
+ * Keys: ` toggles the panel, M wireframe, G ground grid, N falling snow.
  */
 export function DebugPanel({ stats, config, bounds, view, onViewChange }: DebugPanelProps) {
   const [open, setOpen] = useState(false);
@@ -125,6 +128,7 @@ export function DebugPanel({ stats, config, bounds, view, onViewChange }: DebugP
       if (e.code === TOGGLE_PANEL_KEY) setOpen((v) => !v);
       if (e.code === TOGGLE_WIREFRAME_KEY) onViewChange(toggleWireframe);
       if (e.code === TOGGLE_GRID_KEY) onViewChange(toggleGrid);
+      if (e.code === TOGGLE_SNOW_KEY) onViewChange(toggleSnow);
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
@@ -161,6 +165,14 @@ export function DebugPanel({ stats, config, bounds, view, onViewChange }: DebugP
                 type="checkbox"
                 checked={view.wireframe}
                 onChange={() => onViewChange(toggleWireframe)}
+              />
+            </label>
+            <label className={s.toggle}>
+              <span>falling snow [N]</span>
+              <input
+                type="checkbox"
+                checked={view.snow}
+                onChange={() => onViewChange(toggleSnow)}
               />
             </label>
             <label className={s.toggle}>

@@ -91,11 +91,19 @@ export const WORLD_CONFIG: WorldConfig = {
     ],
     rocks: { count: 90, seed: 7331 },
   },
+  snow: {
+    rate: 700,
+    area: 90,
+    height: 30,
+    flakeSize: [0.08, 0.22],
+    fallSpeed: [3, 3.6], // narrow range: faster flakes would outlive the fall and end up underground
+  },
 };
 
 /** Initial debug-view state. */
 export const DEFAULT_VIEW: ViewSettings = {
   wireframe: false,
+  snow: true,
   grid: { visible: false, cellSize: 10 },
 };
 

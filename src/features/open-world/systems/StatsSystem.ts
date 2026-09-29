@@ -85,6 +85,7 @@ export class StatsSystem implements GameSystem {
         materials: scene.materials.length,
         lights: scene.lights.length,
         colliders: colliders.count,
+        particles: scene.particleSystems.reduce((n, ps) => n + ps.getActiveCount(), 0),
       },
       renderer: {
         api: engine.description,

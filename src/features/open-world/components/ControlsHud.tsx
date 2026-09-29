@@ -15,6 +15,7 @@ const CONTROLS = [
   { keys: ['`'], label: 'toggle stats' },
   { keys: ['M'], label: 'toggle wireframe' },
   { keys: ['G'], label: 'toggle ground grid' },
+  { keys: ['N'], label: 'toggle falling snow' },
 ];
 
 /** Keyboard/mouse guide. Open by default; toggle with H or the header button. */

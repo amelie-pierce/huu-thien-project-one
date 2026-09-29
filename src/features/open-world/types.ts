@@ -81,11 +81,24 @@ export interface PropsConfig {
   rocks: { count: number; seed: number };
 }
 
+export interface SnowConfig {
+  /** Flakes spawned per second. */
+  rate: number;
+  /** Width/depth (world units) of the snowing area around the player. */
+  area: number;
+  /** Height above the player where flakes spawn. */
+  height: number;
+  flakeSize: [min: number, max: number];
+  /** Fall speed range (units per second). */
+  fallSpeed: [min: number, max: number];
+}
+
 export interface WorldConfig {
   map: MapConfig;
   player: PlayerConfig;
   camera: CameraConfig;
   props: PropsConfig;
+  snow: SnowConfig;
 }
 
 /** Axis-aligned walkable area on the XZ plane. */
@@ -109,6 +122,8 @@ export interface GameSystem {
 export interface ViewSettings {
   /** Render every mesh as raw wireframe (triangle edges only). */
   wireframe: boolean;
+  /** Falling snow particles. */
+  snow: boolean;
   grid: {
     visible: boolean;
     /** World units per grid cell. */
@@ -138,6 +153,7 @@ export interface GameStats {
     materials: number;
     lights: number;
     colliders: number;
+    particles: number;
   };
   renderer: {
     api: string;

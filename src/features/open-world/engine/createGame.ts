@@ -17,6 +17,7 @@ import { ColliderWorld } from '../world/colliders';
 import { createEnvironment } from '../world/environment';
 import { GroundGrid } from '../world/groundGrid';
 import { loadPropTemplates, scatterProps } from '../world/props';
+import { Snowfall } from '../world/snowfall';
 import { createTerrain } from '../world/terrain';
 
 /** Max frame step, so a background tab doesn't teleport the player on return. */
@@ -95,6 +96,10 @@ export async function createGame(
       cameraSystem
     );
 
+    // Weather follows the player (after movement, so the snow box is centered on this frame's position).
+    const snowfall = new Snowfall(scene, player.root, config.snow);
+    systems.push(snowfall);
+
     // Debug/telemetry runs last so it sees the final state of the frame.
     if (onStats) {
       systems.push(
@@ -122,6 +127,7 @@ export async function createGame(
         scene.forceWireframe = view.wireframe;
         grid.setCellSize(view.grid.cellSize);
         grid.setVisible(view.grid.visible);
+        snowfall.setEnabled(view.snow);
       },
       dispose,
     };
