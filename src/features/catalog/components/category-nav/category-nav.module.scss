@@ -7,9 +7,15 @@
     list-style: none;
     overflow-x: auto;
     scrollbar-width: none;
+    line-height: var(--line-height-none);
+    justify-content: center;
 
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    @include respond-to("tablet-portrait") {
+      gap: spacing(32);
     }
 
     @include respond-to("laptop") {
@@ -50,6 +56,7 @@
         display: flex;
         justify-content: center;
         align-items: flex-end;
+        padding-bottom: 2px;
       }
     }
   }

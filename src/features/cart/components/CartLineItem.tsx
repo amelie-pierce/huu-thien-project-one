@@ -15,7 +15,7 @@ export function CartLineItem({ line }: { line: CartLine }) {
   return (
     <li className={s.line}>
       <div className={s.thumb}>
-        <Image src={line.image} alt={line.name} width={34} height={36} className={s.thumbImage} />
+        <Image src={line.image} alt={line.name} width={34} height={36} sizes='100vw' className={s.thumbImage} />
       </div>
 
       <div className={s.lineBody}>

@@ -2,7 +2,7 @@
   position: relative;
   aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: var(--radius-6);
   background: var(--color-primary);
   display: flex;
   flex-direction: column;
@@ -18,7 +18,8 @@
   }
 
   .image {
-    object-fit: contain;
+    object-fit: cover;
     object-position: center bottom;
+    width: 100%;
   }
 }

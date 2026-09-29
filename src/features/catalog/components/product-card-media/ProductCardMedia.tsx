@@ -10,8 +10,9 @@ export function ProductCardMedia({ product }: { product: Product }) {
       <Image
         src={product.imageUrl}
         alt={product.name}
-        width={176}
-        height={188}
+        width={0}
+        height={0}
+        sizes="100vw"
         className={s.image}
       />
     </div>

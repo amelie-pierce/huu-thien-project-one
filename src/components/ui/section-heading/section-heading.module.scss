@@ -1,6 +1,6 @@
 .heading {
   display: flex;
-  align-items: flex-end;
+  // align-items: flex-end;
   justify-content: space-between;
   gap: spacing(16);
   padding-top: spacing(32);
@@ -20,6 +20,7 @@
   font-size: var(--text-md);
   color: var(--color-fg);
   padding: spacing(10);
+  line-height: var(--line-height-none);
 
   &:hover {
     text-decoration: underline;
@@ -29,4 +30,6 @@
 .itemLengthLabel {
   font-size: var(--text-sm);
   color: var(--color-black);
+  align-self: center;
+  text-transform: uppercase;
 }

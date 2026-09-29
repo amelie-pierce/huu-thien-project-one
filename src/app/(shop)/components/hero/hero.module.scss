@@ -22,7 +22,7 @@
 
 .heroContainer {
   display: grid;
-  gap: spacing(24);
+  gap: spacing(10);
   padding-block: spacing(19);
   padding-inline: spacing(20);
 
@@ -52,7 +52,8 @@
 
   .subtitle {
     font-size: clamp(var(--text-md), 2.5vw, var(--text-xl));
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-none);
     @extend %textTitle;
   }
 }
@@ -63,10 +64,13 @@
 }
 
 .image {
+  display: block;
+  // Explicit widths per source: the <img> width/height attrs belong to the mobile image
+  width: 261px;
+  max-width: 100%;
+  height: auto;
 
   @include respond-to("tablet-portrait") {
-  }
-
-  @include respond-to("laptop") {
+    width: 537px;
   }
 }
