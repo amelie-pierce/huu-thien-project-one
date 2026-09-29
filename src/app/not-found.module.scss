@@ -1,0 +1,64 @@
+.page {
+  @include flex-center;
+  min-height: 100dvh;
+  padding: spacing(40) spacing(20);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: spacing(24);
+  max-width: 560px;
+  text-align: center;
+}
+
+.icon {
+  width: spacing(88);
+  height: spacing(88);
+
+  @include respond-to("tablet-portrait") {
+    width: spacing(116);
+    height: spacing(116);
+  }
+}
+
+.title {
+  margin-top: spacing(16);
+  color: var(--color-on-primary);
+  font-size: var(--text-display-md);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-none);
+
+  @include respond-to("tablet-portrait") {
+    font-size: var(--text-display-xl);
+  }
+}
+
+.text {
+  color: var(--color-on-primary);
+  font-size: var(--text-md);
+  text-wrap: balance;
+}
+
+.button {
+  @include flex-center;
+  padding: spacing(10) spacing(20);
+  border-radius: var(--radius-1);
+  background: var(--color-bg-accent);
+  color: var(--color-primary);
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-medium);
+  transition: filter 0.15s ease;
+
+  &:hover {
+    filter: brightness(0.95);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-on-primary);
+    outline-offset: 3px;
+  }
+}
