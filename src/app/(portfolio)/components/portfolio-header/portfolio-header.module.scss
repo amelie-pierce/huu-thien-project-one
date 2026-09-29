@@ -19,6 +19,9 @@
 }
 
 .header .nav {
+  width: fit-content;
+  max-width: 100%;
+
   @include respond-below('mobile-custom') {
     width: 100%;
     max-width: 100%;
