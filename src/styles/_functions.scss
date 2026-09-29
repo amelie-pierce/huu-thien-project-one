@@ -14,8 +14,7 @@
   @if $sp == null {
     $sp: 4;
   }
-  $spacing-multiplier: calc($sp / $spacing);
-  @return calc(var(--spacing) * $spacing-multiplier);
+  @return rem($sp * 1px);
 }
 
 @function fluid($min, $max, $min-breakpoint, $max-breakpoint) {
