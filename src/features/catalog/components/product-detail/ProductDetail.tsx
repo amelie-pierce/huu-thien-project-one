@@ -13,7 +13,7 @@ export function ProductDetail({ product }: { product: Product }) {
   const [price, setPrice] = useState(product.price);
   return (
     <Container className={s.detail}>
-      <ProductCardMedia product={product} />
+      <ProductCardMedia product={product} className={s.media} />
       <div className={s.info}>
         <div className={s.header}>
           <Heading as="h1" variant="display" className={s.title}>

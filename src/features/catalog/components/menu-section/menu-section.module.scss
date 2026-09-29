@@ -4,8 +4,21 @@
   padding-block: spacing(64);
   align-items: start;
 
+  // Handle Specific cases follow by Design
+  @include respond-to("tablet-landscape") {
+    > * {
+      width: 100%;
+      max-width: calc(2 * 405px + #{spacing(24)});
+      justify-self: center;
+    }
+  }
+
   @include respond-to("laptop") {
     grid-template-columns: 282px minmax(0, 1fr);
+
+    > * {
+      max-width: none;
+    }
   }
 
   .sidebar {

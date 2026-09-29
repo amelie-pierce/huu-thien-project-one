@@ -21,7 +21,7 @@ export function ProductCard({ product }: { product: Product }) {
             className={s.image}
           />
         </div> */}
-        <ProductCardMedia product={product} />
+        <ProductCardMedia product={product} fixedSize />
         <div className={s.info}>
           <Heading as="h3" variant="card" className={s.name}>{product.name}</Heading>
           <Text as="span" className={s.price}>{formatPrice(product.price)}</Text>

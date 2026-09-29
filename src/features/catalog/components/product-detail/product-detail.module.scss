@@ -3,9 +3,31 @@
   gap: spacing(48);
   padding-block: spacing(48);
 
+  // Handle Specific cases follow by Design
+  @include respond-to("tablet-portrait") {
+    @include respond-below("laptop") {
+      justify-items: center;
+
+      .info {
+        width: 100%;
+        max-width: 628px;
+      }
+    }
+  }
+
   @include respond-to("laptop") {
     grid-template-columns: minmax(0, 508px) minmax(0, 1fr);
     align-items: start;
+  }
+
+  // Handle Specific cases follow by Design
+  .media {
+    @include respond-to("tablet-portrait") {
+      width: 100%;
+      max-width: 508px;
+      min-height: 0;
+      max-height: 508px;
+    }
   }
 
   .header {
@@ -24,6 +46,9 @@
 
 .title {
   font-size: var(--text-5xl);
+  line-height: var(--line-height-normal);
+
+  @include truncate(2);
 }
 
 .price {
@@ -53,7 +78,8 @@
 
 .submit {
   width: 100%;
-
+  line-height: var(--line-height-none);
+  max-height: rem(32px);
   @include respond-to("tablet-portrait") {
     width: auto;
   }
