@@ -1,7 +1,7 @@
 .nav {
   .list {
     display: flex;
-    gap: spacing(24);
+    gap: spacing(32);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -15,13 +15,14 @@
     }
 
     @include respond-to("tablet-portrait") {
-      gap: spacing(32);
+      padding: spacing(8);
     }
 
     @include respond-to("laptop") {
       flex-direction: column;
       gap: spacing(24);
       overflow: visible;
+      padding: 0;
     }
   }
 

@@ -25,6 +25,7 @@ export function CartDrawer() {
       onClose={closeCart}
       placement="right"
       footerClassName={s.drawerFooter}
+      headerClassName={s.drawerHeader}
       title={<div className={s.cartTitle}>Shopping Cart {count > 0 ? `(${count})` : ''}</div>}
       footer={
         lines.length > 0 ? (

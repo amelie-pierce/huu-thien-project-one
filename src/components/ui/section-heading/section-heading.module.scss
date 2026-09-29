@@ -9,11 +9,8 @@
 
 .title {
   text-transform: uppercase;
-  font-size: var(--text-lg);
+  font-size: var(--text-3xl);
 
-  @include respond-to("tablet-portrait") {
-    font-size: var(--text-3xl);
-  }
 }
 
 .action {

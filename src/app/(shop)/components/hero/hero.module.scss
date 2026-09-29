@@ -54,6 +54,7 @@
     font-size: clamp(var(--text-md), 2.5vw, var(--text-xl));
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-none);
+    text-wrap: balance;
     @extend %textTitle;
   }
 }

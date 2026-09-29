@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Field } from '@/components/ui';
+import { Button, Field, Text } from '@/components/ui';
 
 import { SIGN_UP_FIELDS } from '../auth-fields';
 import s from './auth.module.scss';
@@ -46,27 +46,36 @@ export function SignUpForm() {
   }
 
   return (
-    <form className={s.form} onSubmit={handleSubmit} onInput={handleInput} noValidate>
-      {formError && (
-        <div className={s.formError} role="alert">
-          {formError}
+    <>
+      <form className={s.formWrap} onSubmit={handleSubmit} onInput={handleInput} noValidate>
+        <div className={s.form}>
+          {formError && (
+            <div className={s.formError} role="alert">
+              {formError}
+            </div>
+          )}
+
+          {SIGN_UP_FIELDS.map((field) => (
+            <Field key={field.name} {...field} />
+          ))}
+
+          <Button type="submit" block loading={pending}>
+            Sign Up
+          </Button>
         </div>
-      )}
-      
-      {SIGN_UP_FIELDS.map((field) => (
-        <Field key={field.name} {...field} />
-      ))}
-
-      <Button type="submit" block loading={pending}>
-        Sign Up
-      </Button>
-
-      <p className={s.switch}>
+      </form>
+      {/* <p className={s.switch}>
         Already have an account?{' '}
         <button type="button" className="btn-sign-link" onClick={() => openAuth('signIn')}>
           Sign In
         </button>
-      </p>
-    </form>
+      </p> */}
+      <Text className={s.switch}>
+        Already have an account?{' '}
+        <button type="button" className="btn-sign-link" onClick={() => openAuth('signIn')}>
+          Sign In
+        </button>
+      </Text>
+    </>
   );
 }
