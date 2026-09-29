@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Heading, Text } from '@/components/ui';
+import { Container, ExpandableText, Heading, Text } from '@/components/ui';
 
 import { AddToCartForm } from '../add-to-cart-form/AddToCartForm';
 import { Product } from '../../types';
@@ -9,7 +9,12 @@ import { formatPrice } from '@/lib/format';
 import s from './product-detail.module.scss';
 import { useState } from 'react';
 
-export function ProductDetail({ product }: { product: Product }) {
+type Props = {
+  product: Product;
+  expandableDescription?: boolean;
+};
+
+export function ProductDetail({ product, expandableDescription }: Props) {
   const [price, setPrice] = useState(product.price);
   return (
     <Container className={s.detail}>
@@ -23,7 +28,11 @@ export function ProductDetail({ product }: { product: Product }) {
             {formatPrice(price)}
           </Text>
         </div>
-        <Text className={s.description}>{product.description}</Text>
+        {product.description && (
+          <ExpandableText className={s.description} enabled={expandableDescription}>
+            {product.description}
+          </ExpandableText>
+        )}
         <hr className={s.divider} />
         <AddToCartForm product={product} onSizeChange={setPrice} />
       </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { features } from "@/config/features";
 import { ProductDetail } from "@/features/catalog/components/product-detail/ProductDetail";
 import { getProductBySlug } from "@/features/catalog/catalog.service";
 import { notFound } from "next/navigation";
@@ -16,5 +17,10 @@ export default async function ProductPage({ params }: Props) {
   const product = await getProductBySlug(slug);
   if (!product) notFound();
 
-  return <ProductDetail product={product} />;
+  return (
+    <ProductDetail
+      product={product}
+      expandableDescription={features.productDescriptionToggle}
+    />
+  );
 }

@@ -7,4 +7,5 @@ const isEnabled = (value: string | undefined) => value === 'true';
 export const features = {
   /** Promo banner on the shop hero linking to /open-world. */
   openWorldPromo: isEnabled(process.env.SHOW_OPEN_WORLD_PROMO),
+  productDescriptionToggle: isEnabled(process.env.SHOW_PRODUCT_DESCRIPTION_TOGGLE),
 } as const;

@@ -15,3 +15,4 @@ export * from "./checkbox";
 export * from "./radio";
 export * from "./field";
 export * from "./pagination";
+export * from "./expandable-text";
