@@ -56,8 +56,10 @@ export async function createOrder({
     items.push({ productId: size.productId, size: size.name, unitPrice: size.price, qty: line.qty });
   }
 
-  const email = values.email.trim().toLowerCase();
   const sessionUser = await getCurrentUser();
+  const email = (sessionUser?.email ?? values.email ?? '').trim().toLowerCase();
+  if (!email) return { ok: false };
+
   const user =
     sessionUser ?? (await prisma.user.findUnique({ where: { email }, select: { id: true } }));
   const cardNumber = values.cardNumber?.replace(/\s/g, '') ?? '';

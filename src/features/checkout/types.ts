@@ -1,5 +1,5 @@
 export type CheckoutValues = {
-  email: string;
+  email?: string;
   name: string;
   phone: string;
   country: string;
