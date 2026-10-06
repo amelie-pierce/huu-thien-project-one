@@ -8,5 +8,4 @@ export const features = {
   /** Promo banner on the shop hero linking to /open-world. */
   openWorldPromo: isEnabled(process.env.SHOW_OPEN_WORLD_PROMO),
   productDescriptionToggle: isEnabled(process.env.SHOW_PRODUCT_DESCRIPTION_TOGGLE),
-  productSearch: isEnabled(process.env.SHOW_PRODUCT_SEARCH),
 } as const;

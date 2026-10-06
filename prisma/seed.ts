@@ -2,8 +2,6 @@ import { categoriesData } from './data';
 import { prisma } from '@/db/client';
 
 async function main() {
-  console.log('🌱 Starting database seed...');
-
   // Clean existing data to avoid unique constraint violations on re-runs
   await prisma.product.deleteMany({});
   await prisma.category.deleteMany({});
@@ -16,8 +14,6 @@ async function main() {
       data: category,
     });
   }
-
-  console.log('✅ Seeding completed successfully!');
 }
 
 main()
