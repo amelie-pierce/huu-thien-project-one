@@ -21,8 +21,26 @@
     height: 100%;
 
     li a {
+      display: inline-block;
       color: var(--color-on-primary);
       padding: spacing(10);
+      border-radius: var(--radius-full);
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+
+      &:focus-visible {
+        outline: none;
+        background: var(--color-on-primary);
+        color: var(--color-primary);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background: var(--color-on-primary);
+          color: var(--color-primary);
+        }
+      }
     }
   }
 }

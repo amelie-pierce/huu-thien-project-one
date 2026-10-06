@@ -9,6 +9,7 @@
   color: var(--color-white);
   padding-block: spacing(4);
   padding-inline: spacing(8);
+  transition: background-color 0.2s ease;
 }
 
 .badge:hover {
