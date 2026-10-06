@@ -1,0 +1,134 @@
+.fab {
+  @include flex-center;
+  position: fixed;
+  right: spacing(20);
+  bottom: spacing(20);
+  z-index: 50;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+  cursor: pointer;
+
+  @include respond-to('laptop') {
+    display: none;
+  }
+}
+
+.dialog {
+  width: min(560px, calc(100vw - #{spacing(32)}));
+}
+
+.input {
+  width: 100%;
+  padding: spacing(12) spacing(16);
+  border: 1px solid var(--color-border-weak);
+  border-radius: var(--radius-2);
+  background: var(--color-surface);
+  font: inherit;
+  font-size: var(--text-md);
+}
+
+.status {
+  padding-block: spacing(16);
+  text-align: center;
+  color: var(--color-on-bg-muted);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-top: spacing(12);
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: spacing(12);
+  padding-block: spacing(10);
+  border-bottom: 1px solid var(--color-border-weak);
+}
+
+.mediaLink {
+  flex: 0 0 auto;
+  align-self: flex-start;
+}
+
+.media {
+  flex: 0 0 auto;
+  width: 64px;
+  border-radius: var(--radius-2);
+
+  > :not(img) {
+    display: none;
+  }
+}
+
+.info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: spacing(4);
+  min-width: 0;
+}
+
+.name {
+  font-size: var(--text-md);
+  @include truncate(1);
+}
+
+.price {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-on-bg-muted);
+}
+
+.add {
+  flex-shrink: 0;
+}
+
+.sizes {
+  transform: scale(0.9);
+  transform-origin: left center;
+
+  legend[class] {
+    margin-bottom: spacing(4);
+    font-size: var(--text-sm);
+  }
+}
+
+.toast {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: spacing(12);
+  margin-top: spacing(12);
+  padding: spacing(12) spacing(16);
+  border-radius: var(--radius-2);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: var(--text-sm);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+}
+
+.toastMessage {
+  flex: 1;
+  min-width: 0;
+}
+
+.toastAction {
+  flex-shrink: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+  cursor: pointer;
+}

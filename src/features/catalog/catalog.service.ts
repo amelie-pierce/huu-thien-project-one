@@ -93,3 +93,15 @@ export async function getProducts(categorySlug: string, page = 1) {
     },
   };
 }
+
+export async function searchProducts(query: string, limit = 8) {
+  const term = query.trim();
+  if (!term) return [];
+
+  return prisma.product.findMany({
+    where: { name: { contains: term, mode: 'insensitive' } },
+    include: { sizes: true },
+    orderBy: { name: 'asc' },
+    take: limit,
+  });
+}
