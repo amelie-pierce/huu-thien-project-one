@@ -1,12 +1,12 @@
 .nav {
   --pill-height: 58px;
   --pill-circle: 44px;
-  --pill-item: 64px;
+  --pill-item: 56px;
   --pill-gap: #{spacing(10)};
   --pill-label: var(--text-md);
   --pill-inset: calc((var(--pill-height) - var(--pill-circle)) / 2);
 
-  display: inline-flex;
+  display: inline-grid;
   border-radius: var(--radius-full);
   background: var(--color-primary);
   color: var(--color-on-primary);
@@ -14,18 +14,25 @@
   @include respond-below('mobile-landscape') {
     --pill-height: 50px;
     --pill-circle: 36px;
-    --pill-item: 44px;
+    --pill-item: 40px;
     --pill-gap: #{spacing(8)};
     --pill-label: var(--text-sm);
   }
 }
 
 .list {
+  grid-area: 1 / 1;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.ghost {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .item {
@@ -43,7 +50,7 @@
   transition: padding 0.3s ease;
 
   &[data-active] {
-    padding-inline: var(--pill-inset) calc(var(--pill-inset) * 2.5);
+    padding-inline: var(--pill-inset) calc(var(--pill-inset) * 2);
 
     .icon {
       background: var(--color-highlight);

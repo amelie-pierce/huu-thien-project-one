@@ -36,6 +36,17 @@ function ItemContent({ item }: { item: PillNavItem }) {
 export function PillNav({ items, label, className }: Props) {
   return (
     <nav className={cn(s.nav, className)} aria-label={label}>
+      {items.map((ghost) => (
+        <ul key={ghost.key} className={cn(s.list, s.ghost)} aria-hidden>
+          {items.map((item) => (
+            <li key={item.key}>
+              <span className={s.item} data-active={item.key === ghost.key || undefined}>
+                <ItemContent item={item} />
+              </span>
+            </li>
+          ))}
+        </ul>
+      ))}
       <ul className={s.list}>
         {items.map((item) => {
           const props = {
