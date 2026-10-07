@@ -3,10 +3,11 @@
   align-items: center;
   justify-content: center;
   border: none;
-  border-radius: var(--radius-1);
+  border-radius: var(--radius-full);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-normal);
-  padding: spacing(10);
+  padding: spacing(12);
+  max-height: rem(48px);
   cursor: pointer;
 
   &:disabled {

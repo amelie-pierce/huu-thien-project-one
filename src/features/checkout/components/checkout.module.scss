@@ -89,7 +89,7 @@
 
     .stack {
       border: 1px solid var(--color-border-muted);
-      border-radius: var(--radius-4);
+      border-radius: var(--radius-6);
       padding: spacing(16);
     }
 
@@ -179,7 +179,7 @@
   gap: spacing(16);
   padding: spacing(16);
   border: 1px solid var(--color-border-muted);
-  border-radius: var(--radius-4);
+  border-radius: var(--radius-6);
   background: var(--color-surface);
 
   @include respond-to("laptop") {

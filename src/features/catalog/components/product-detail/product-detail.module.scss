@@ -71,7 +71,7 @@
 .submit {
   width: 100%;
   line-height: var(--line-height-none);
-  max-height: rem(32px);
+
   @include respond-to("tablet-portrait") {
     width: auto;
   }
