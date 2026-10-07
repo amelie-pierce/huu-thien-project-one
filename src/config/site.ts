@@ -1,13 +1,13 @@
 export const siteConfig = {
   name: "Life Begins After Coffee",
   nav: [
-    { label: "Seft", href: "/" },
+    { label: "Self", href: "/" },
     { label: "Menu", href: "/menu" },
     { label: "Contact us", href: "#contact" },
   ],
   contact: {
     phone: "+8493 3688 247",
-    email: "hello@beer.com",
+    email: "hello@thieng.com",
   },
   socials: [
     { name: "Instagram", href: "https://instagram.com", icon: "instagram" },

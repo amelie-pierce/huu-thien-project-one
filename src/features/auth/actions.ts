@@ -11,9 +11,13 @@ export async function signInRequest(email: string, password: string): Promise<Us
 }
 
 export async function signUpRequest(email: string, password: string): Promise<User> {
+try {
   const user = await signUp(email, password);
   await createSession(user.id);
   return user;
+} catch {
+  throw new Error("We couldn't create the account. Try again.");
+}
 }
 
 export async function signOutRequest() {
