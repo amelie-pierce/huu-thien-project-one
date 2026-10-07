@@ -1,36 +1,17 @@
 .header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: spacing(16);
+  pointer-events: none;
 
-  @include respond-below('mobile-landscape') {
-    width: 100%;
-    min-width: 0;
-  }
-}
-
-.header .nav {
-  width: fit-content;
-  max-width: 100%;
-  height: rem(48px);
-  padding: rem(12px) rem(4px);
-
-  @include respond-below('mobile-landscape') {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    flex: 1 1 0%;
-    height: auto;
-    padding: spacing(8);
-
-    ul {
-      min-width: 0;
-      gap: spacing(4);
-
-      li a {
-        padding: spacing(4);
-      }
-    }
+  > * {
+    pointer-events: auto;
+    box-shadow:
+      0 6px 20px rgb(0 0 0 / 30%),
+      0 0 0 1px rgb(255 255 255 / 12%);
   }
 }

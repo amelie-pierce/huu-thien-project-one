@@ -125,6 +125,7 @@
     --color-border-strong: var(--color-neutral-550);
     --color-brand-primary: var(--color-brand-green-500);
     --color-brand-primary_hover: var(--color-brand-green-600);
+    --color-highlight: #FFECAE;
     --color-danger: var(--color-red-500);
     --color-danger-strong: var(--color-red-600);
     --color-danger-subtle: var(--color-red-100);
@@ -202,6 +203,7 @@
 
     --color-brand-primary: var(--color-orange-500);
     --color-brand-primary-hover: var(--color-orange-600);
-    
+    --color-highlight: var(--color-on-primary);
+
     --text-heading: #{fluid(48px, 64px,'mobile-portrait', 'mobile-landscape')};
 }

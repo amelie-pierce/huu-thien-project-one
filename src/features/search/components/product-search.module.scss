@@ -1,20 +1,29 @@
-.fab {
+.trigger {
   @include flex-center;
-  position: fixed;
-  right: spacing(20);
-  bottom: spacing(20);
-  z-index: 50;
-  width: 56px;
-  height: 56px;
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
   border: 0;
   border-radius: var(--radius-full);
   background: var(--color-primary);
   color: var(--color-on-primary);
-  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
   cursor: pointer;
+  transition: color 0.2s ease;
 
-  @include respond-to('laptop') {
-    display: none;
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--color-bg-accent);
+    }
+  }
+
+  @include respond-below('mobile-landscape') {
+    width: 50px;
+    height: 50px;
   }
 }
 

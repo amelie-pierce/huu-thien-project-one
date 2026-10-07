@@ -105,3 +105,8 @@ export async function searchProducts(query: string, limit = 8) {
     take: limit,
   });
 }
+
+export const getCategoryName = cache(async (slug: string) => {
+  const category = await prisma.category.findUnique({ where: { slug }, select: { name: true } });
+  return category?.name ?? null;
+});

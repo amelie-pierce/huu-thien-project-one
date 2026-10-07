@@ -10,8 +10,11 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Thieng - Portfolio",
-  description: "Portfolio website of Thieng",
+  title: {
+    default: "Thieng | UX Engineer",
+    template: "%s | Thieng",
+  },
+  description: "Portfolio of Thieng, a UX engineer who designs and codes beautifully simple things.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

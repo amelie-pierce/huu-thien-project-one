@@ -59,11 +59,7 @@
     }
 
     section {
-      scroll-margin-top: spacing(16);
-
-      @include respond-to('laptop') {
-        scroll-margin-top: spacing(40);
-      }
+      scroll-margin-top: calc(58px + #{spacing(32)} + #{spacing(16)});
     }
 
     .statContainer {
@@ -84,7 +80,7 @@
 
   @include respond-to('laptop') {
     position: sticky;
-    top: spacing(40);
+    top: calc(58px + #{spacing(32)} + #{spacing(16)});
     align-self: start;
   }
 }

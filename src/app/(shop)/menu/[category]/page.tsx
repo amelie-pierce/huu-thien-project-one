@@ -2,7 +2,8 @@ import { Container, Pagination, SectionHeading } from "@/components/ui";
 
 import { Hero } from "../../components/hero/Hero";
 import { ProductGrid } from "@/features/catalog/components/product-grid/ProductGrid";
-import { getProducts } from "@/features/catalog/catalog.service";
+import { getCategoryName, getProducts } from "@/features/catalog/catalog.service";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import s from "./category.module.scss";
 
@@ -16,11 +17,10 @@ type Props = {
 //   return categories.map((category) => ({ category: category.slug }));
 // }
 
-// export async function generateMetadata({ params }: Props): Promise<Metadata> {
-//   const { category: slug } = await params;
-//   const category = await getCategory(slug);
-//   return { title: category ? category.name : "Menu" };
-// }
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { category: slug } = await params;
+  return { title: (await getCategoryName(slug)) ?? "Menu" };
+}
 
 export default async function CategoryPage({ params, searchParams }: Props) {
   const { category: slug } = await params;

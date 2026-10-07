@@ -16,3 +16,4 @@ export * from "./radio";
 export * from "./field";
 export * from "./pagination";
 export * from "./expandable-text";
+export * from "./pill-nav";

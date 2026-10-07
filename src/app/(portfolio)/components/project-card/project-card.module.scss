@@ -28,6 +28,24 @@
     img[id='clix'] {
       object-position: bottom;
     }
+
+    @include respond-below('mobile-landscape') {
+      width: 72px;
+
+      img {
+        width: 100%;
+        height: 72px;
+        max-height: none;
+      }
+    }
+  }
+
+  @include respond-below('mobile-landscape') {
+    padding-inline: spacing(12);
+
+    .wrapper {
+      gap: spacing(12);
+    }
   }
 
   .content {

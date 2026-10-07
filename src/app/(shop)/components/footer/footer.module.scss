@@ -3,6 +3,10 @@
   color: var(--color-on-primary);
   padding-inline: spacing(16);
 
+  @include respond-below('mobile-landscape') {
+    padding-bottom: calc(50px + #{spacing(24)} + env(safe-area-inset-bottom));
+  }
+
   :focus-visible {
     outline-color: var(--color-on-primary);
   }

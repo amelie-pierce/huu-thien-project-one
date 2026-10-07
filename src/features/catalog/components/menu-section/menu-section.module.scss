@@ -17,7 +17,7 @@
 
     @include respond-to("laptop") {
       position: sticky;
-      top: calc(56px + #{spacing(32)} + #{spacing(24)});
+      top: calc(58px + #{spacing(32)} + #{spacing(24)});
     }
   }
 
@@ -32,7 +32,11 @@
     }
 
     > * {
-      scroll-margin-top: calc(56px + #{spacing(32)} + #{spacing(24)});
+      scroll-margin-top: calc(58px + #{spacing(32)} + #{spacing(24)});
+
+      @include respond-below('mobile-landscape') {
+        scroll-margin-top: spacing(16);
+      }
     }
   }
 }

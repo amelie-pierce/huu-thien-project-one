@@ -5,53 +5,33 @@
   padding-block: spacing(16);
   pointer-events: none;
 
-  // @include respond-to("tablet-portrait") {
-  //   padding-block: spacing(32);
-  // }
+  @include respond-below('mobile-landscape') {
+    position: fixed;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-block: spacing(12) calc(#{spacing(12)} + env(safe-area-inset-bottom));
+  }
 
   .inner {
     display: flex;
     justify-content: center;
     align-items: center;
 
+    @include respond-to('mobile-landscape') {
+      gap: spacing(4);
+    }
+
     > * {
       pointer-events: auto;
+    }
+
+    > nav,
+    > button {
       box-shadow:
         0 6px 20px rgb(0 0 0 / 18%),
         0 0 0 1px rgb(255 255 255 / 20%);
-    }
-
-    > button {
-      width: 56px;
-      height: 56px;
-    }
-
-    @include respond-below('mobile-landscape') {
-      min-width: 0;
-      gap: spacing(8);
-    }
-  }
-
-  .inner .nav {
-    height: 56px;
-    padding: spacing(8);
-
-    @include respond-below('mobile-landscape') {
-      flex: 1 1 0%;
-      width: auto;
-      max-width: 100%;
-      min-width: 0;
-      padding: spacing(8);
-
-      ul {
-        min-width: 0;
-        gap: spacing(4);
-
-        li a {
-          padding: spacing(6) spacing(4);
-          white-space: nowrap;
-        }
-      }
     }
   }
 }

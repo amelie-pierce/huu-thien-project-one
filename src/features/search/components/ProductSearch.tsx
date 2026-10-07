@@ -98,7 +98,7 @@ export function ProductSearch() {
 
   return (
     <>
-      <button type="button" className={s.fab} aria-label="Search products" onClick={() => setOpen(true)}>
+      <button type="button" className={s.trigger} aria-label="Search products" onClick={() => setOpen(true)}>
         <SearchIcon size={24} />
       </button>
 
