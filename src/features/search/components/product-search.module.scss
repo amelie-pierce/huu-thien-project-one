@@ -88,6 +88,7 @@
 
 .name {
   font-size: var(--text-md);
+  overflow: hidden;
   @include truncate(1);
 }
 
@@ -99,6 +100,20 @@
 
 .add {
   flex-shrink: 0;
+}
+
+@include respond-below('mobile-landscape') {
+  .item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    row-gap: spacing(8);
+  }
+
+  .add {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
 }
 
 .sizes {
