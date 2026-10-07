@@ -89,7 +89,7 @@
   gap: 0.5rem;
   max-width: calc(100vw - 2rem);
 
-  @include respond-below('mobile-custom') {
+  @include respond-below('mobile-landscape') {
     top: auto;
     bottom: 1rem;
   }

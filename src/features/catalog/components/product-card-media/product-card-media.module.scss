@@ -24,35 +24,3 @@
     height: auto;
   }
 }
-
-// Handle Specific cases follow by Design
-.fixedSize {
-  // Handle Specific cases follow by Design
-  @media (width: 440px) {
-    width: calc(100% + 5px);
-    margin-right: -5px;
-    min-height: 0;
-    max-height: 405px;
-    flex-shrink: 0;
-  }
-
-  @include respond-to("tablet-landscape") {
-    @include respond-below("laptop") {
-      width: 100%;
-      max-width: 405px;
-      min-height: 0;
-      max-height: 405px;
-      flex-shrink: 0;
-
-      &.tablet408 {
-        height: 408px;
-        max-height: 408px;
-      }
-
-      &.tablet412 {
-        height: 412px;
-        max-height: 412px;
-      }
-    }
-  }
-}

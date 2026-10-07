@@ -13,7 +13,7 @@
 
 @mixin respond-below($breakpoint) {
   @if map.has-key($breakpoints, $breakpoint) {
-    @media (max-width: breakpoint($breakpoint)) {
+    @media (width < breakpoint($breakpoint)) {
       @content;
     }
   }

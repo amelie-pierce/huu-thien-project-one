@@ -4,7 +4,7 @@
   color: #e2e8f0;
   background: linear-gradient(160deg, #bdd6ed 0%, #e9eef4 100%);
 
-  @include respond-below('mobile-custom') {
+  @include respond-below('mobile-landscape') {
     padding-block: 1rem;
   }
 }
@@ -17,7 +17,7 @@
   border-radius: 0.75rem;
   box-shadow: 0 0.75rem 2rem rgba(15, 23, 42, 0.25);
 
-  @include respond-below('mobile-custom') {
+  @include respond-below('mobile-landscape') {
     padding: 1.25rem;
   }
 }

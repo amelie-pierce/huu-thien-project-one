@@ -43,6 +43,10 @@
   gap: spacing(24);
   padding: spacing(24);
 
+  @include respond-below('tablet-portrait') {
+    padding: spacing(8);
+  }
+
   .title {
     font-size: var(--text-hero);
     font-weight: var(--font-weight-bold);

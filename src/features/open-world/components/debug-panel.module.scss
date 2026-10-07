@@ -33,7 +33,7 @@
   overflow-y: auto;
   padding: 0.25rem 0.75rem 0.75rem;
 
-  @include respond-below('mobile-custom') {
+  @include respond-below('mobile-landscape') {
     max-height: 45vh;
   }
 }

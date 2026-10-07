@@ -13,7 +13,7 @@ export function CartButton() {
       className={s.cart}
       onClick={openCart}
     >
-      <CartIcon size={36} />
+      <CartIcon size={28} />
       {count > 0 && (
         <span className={s.badgeCounter}>
           {count > 99 ? "99+" : count}

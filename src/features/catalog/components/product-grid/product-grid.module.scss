@@ -7,12 +7,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  // Handle Specific cases follow by Design
-  @include respond-to("tablet-landscape") {
-    grid-template-columns: repeat(2, minmax(0, 405px));
-    justify-content: center;
-  }
-
   &[data-variant="menu"] {
     @include respond-to("laptop") {
       grid-template-columns: repeat(3, 1fr);

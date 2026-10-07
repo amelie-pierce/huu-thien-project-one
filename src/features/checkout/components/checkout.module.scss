@@ -10,6 +10,10 @@
   padding-block: spacing(64);
   align-items: start;
 
+  @include respond-below('tablet-portrait') {
+    padding-block: spacing(32);
+  }
+
   @include respond-to("laptop") {
     grid-template-columns: minmax(0, 1fr) 390px;
     gap: spacing(48);
@@ -20,6 +24,10 @@
     flex-direction: column;
     gap: spacing(48);
     min-width: 0;
+
+    @include respond-below('tablet-portrait') {
+      gap: spacing(32);
+    }
 
     &[data-auth="signed"] {
         gap: spacing(32);
@@ -46,7 +54,6 @@
       .subText {
         font-size: var(--text-sm);
         color: var(--color-black);
-        line-height: var(--line-height-none);
 
         &[data-auth="signed"] {
             display: flex;

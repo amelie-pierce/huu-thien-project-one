@@ -45,7 +45,7 @@
     grid-area: main;
     display: flex;
     flex-direction: column;
-    gap: spacing(96);
+    gap: spacing(48);
     margin: 0 auto;
     max-width: 100%;
 
@@ -69,7 +69,6 @@
     .statContainer {
       display: flex;
       justify-content: center;
-      gap: spacing(16);
       flex-wrap: wrap;
       gap: spacing(48);
 
@@ -103,7 +102,7 @@
     min-height: 796px;
   }
 
-  @include respond-below('mobile-custom') {
+  @include respond-below('mobile-landscape') {
     padding: spacing(24);
   }
 
@@ -115,16 +114,14 @@
     flex-shrink: 0;
     border-radius: var(--radius-4);
     overflow: hidden;
-    background: linear-gradient(180deg,
-        #4B1500 0%,
-        #F44C38 100%);
+    background: linear-gradient(45deg, #ff430a 0%, #d9411b 55%, #8c1d05 100% 100%);
 
     img {
       object-fit: cover;
       border-radius: 11px;
     }
 
-    @include respond-below('mobile-custom') {
+    @include respond-below('mobile-landscape') {
       width: min(246px, 100%);
     }
   }
@@ -139,7 +136,7 @@
       color: var(--color-black);
       line-height: var(--line-height-relaxed);
       font-size: var(--text-display-md);
-      font-weight: var(--font-weight-semibold);
+      font-weight: var(--font-weight-bold);
       text-align: center;
     }
 
@@ -185,7 +182,7 @@
   align-items: center;
   gap: spacing(24);
 
-  @include respond-below('mobile-custom') {
+  @include respond-below('mobile-landscape') {
     width: 100%;
     min-width: 0;
 
@@ -209,7 +206,7 @@
   gap: spacing(8);
   flex-wrap: wrap;
 
-  @include respond-below('mobile-custom') {
+  @include respond-below('mobile-landscape') {
     width: 100%;
     max-width: 290px;
   }
@@ -244,7 +241,7 @@
 .heroSection {
   display: flex;
   flex-direction: column;
-  gap: spacing(68);
+  gap: spacing(40);
   text-align: center;
 
   @include respond-to('laptop') {
@@ -259,7 +256,7 @@
     }
   }
 
-  @include respond-below('mobile-custom') {
+  @include respond-below('mobile-landscape') {
     .statContainer {
       column-gap: spacing(16);
       row-gap: spacing(24);
@@ -321,16 +318,16 @@
     text-align: left;
   }
 
-  @include respond-below('mobile-custom') {
-    --text-heading: #{fluid(40px, 64px, 'mobile-portrait', 'mobile-custom')};
+  @include respond-below('mobile-landscape') {
+    --text-heading: #{fluid(40px, 64px, 'mobile-portrait', 'mobile-landscape')};
   }
 }
 
 .textHeadingMedium {
   --text-heading: #{rem(48px)};
 
-  @include respond-below('mobile-custom') {
-    --text-heading: #{fluid(32px, 48px, 'mobile-portrait', 'mobile-custom')};
+  @include respond-below('mobile-landscape') {
+    --text-heading: #{fluid(32px, 48px, 'mobile-portrait', 'mobile-landscape')};
   }
 
  @include respond-to('tablet-landscape') {
@@ -338,7 +335,7 @@
   }
 }
 
-@include respond-below('mobile-custom') {
+@include respond-below('mobile-landscape') {
   .portfolioContainer {
     min-width: 0;
     grid-template-columns: minmax(0, 1fr);

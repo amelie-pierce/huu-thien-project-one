@@ -3,31 +3,23 @@
   gap: spacing(48);
   padding-block: spacing(48);
 
-  // Handle Specific cases follow by Design
-  @include respond-to("tablet-portrait") {
-    @include respond-below("laptop") {
-      justify-items: center;
+  @include respond-below('tablet-portrait') {
+    gap: spacing(24);
+    padding-block: spacing(24);
+  }
 
-      .info {
-        width: 100%;
-        max-width: 628px;
-      }
+  @include respond-below("laptop") {
+    justify-items: center;
+
+    > * {
+      width: 100%;
+      max-width: 508px;
     }
   }
 
   @include respond-to("laptop") {
     grid-template-columns: minmax(0, 508px) minmax(0, 1fr);
     align-items: start;
-  }
-
-  // Handle Specific cases follow by Design
-  .media {
-    @include respond-to("tablet-portrait") {
-      width: 100%;
-      max-width: 508px;
-      min-height: 0;
-      max-height: 508px;
-    }
   }
 
   .header {

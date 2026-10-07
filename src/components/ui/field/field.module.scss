@@ -20,7 +20,7 @@
     background: var(--color-surface);
     font-size: var(--text-sm);
 
-    @include respond-below('mobile-custom') {
+    @include respond-below('mobile-landscape') {
       font-size: var(--text-md);
     }
 

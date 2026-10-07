@@ -4,33 +4,21 @@
   padding-block: spacing(64);
   align-items: start;
 
-  // Handle Specific cases follow by Design
-  @include respond-to("tablet-landscape") {
-    > * {
-      width: 100%;
-      max-width: calc(2 * 405px + #{spacing(24)});
-      justify-self: center;
-    }
+  @include respond-below('tablet-portrait') {
+    padding-block: spacing(32);
   }
 
   @include respond-to("laptop") {
     grid-template-columns: 282px minmax(0, 1fr);
-
-    > * {
-      max-width: none;
-    }
   }
 
   .sidebar {
     min-width: 0;
-    // position: sticky;
-    // top: spacing(20);
-    // z-index: var(--z-header);
 
-    // @include respond-to("laptop") {
-    //   top: spacing(40);
-    //   padding-block: 0;
-    // }
+    @include respond-to("laptop") {
+      position: sticky;
+      top: calc(56px + #{spacing(32)} + #{spacing(24)});
+    }
   }
 
   .content {
@@ -38,5 +26,13 @@
     flex-direction: column;
     gap: spacing(64);
     min-width: 0;
+
+    @include respond-below('tablet-portrait') {
+      gap: spacing(40);
+    }
+
+    > * {
+      scroll-margin-top: calc(56px + #{spacing(32)} + #{spacing(24)});
+    }
   }
 }

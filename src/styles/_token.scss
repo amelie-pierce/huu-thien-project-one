@@ -139,7 +139,7 @@
     --color-overlay: var(--color-black-alpha-30);
     --color-disabled: var(--color-neutral-200);
 
-    --text-hero:  #{fluid(48px, 96px,'mobile-custom', 'laptop')};
+    --text-hero:  #{fluid(48px, 96px,'mobile-landscape', 'laptop')};
 }
 
 /* Component-specific tokens */
@@ -203,5 +203,5 @@
     --color-brand-primary: var(--color-orange-500);
     --color-brand-primary-hover: var(--color-orange-600);
     
-    --text-heading: #{fluid(48px, 64px,'mobile-portrait', 'mobile-custom')};
+    --text-heading: #{fluid(48px, 64px,'mobile-portrait', 'mobile-landscape')};
 }
